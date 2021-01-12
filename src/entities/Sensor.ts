@@ -1,7 +1,7 @@
  export class Sensor {
     public id!: string
 
-    public descption!: string
+    public description!: string
     public device!: number
     public id_situation!: number
     public id_gap!: number

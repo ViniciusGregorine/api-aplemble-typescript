@@ -1,6 +1,6 @@
 import { Sensor } from "../../entities/Sensor";
 import { ISensorsRepository } from "../../repositories/ISensorsRepository";
-import { ICreateSensorDTO } from "./createSensorDTO";
+import { ICreateSensorDTO } from './ICreateSensorDTO'
 
 export class CreateSensorUseCase{
     constructor(
@@ -8,9 +8,9 @@ export class CreateSensorUseCase{
     ){}
 
     async execute(data: ICreateSensorDTO){
-        const sensorAlreadyExist = await this.sensorsRepository.findByType(data.descption)
+       // const sensorAlreadyExist = await this.sensorsRepository.findByType(data.description)
 
-        if(sensorAlreadyExist) throw new Error('sensor already exists.')
+        if(false) throw new Error('sensor already exists.')
 
         const sensor = new Sensor(data)
 
