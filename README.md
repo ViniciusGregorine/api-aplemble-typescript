@@ -1,7 +1,6 @@
-# Abstract 
-Learning typeScript with SOLID principlesl creating an API of the TCC project MASA
+MASA project from Instituto Federal Catarinense (IFC)
 ---
-# Technologes and libs
+# technologies and llibraries
 - typeScript
 - NodeJs
 - Express 
