@@ -4,7 +4,7 @@ import {Sensor} from '../entities/Sensor'
 export interface ISensorsRepository{
     // findByType(type: string): Promise<Sensor>
     save(sensor: Sensor): Promise<void>
-    get(): Promise<ISensor[]> | undefined
+    getAllSensor(): Promise<ISensor[]> | undefined // change to getSensor
 }
 
 /*

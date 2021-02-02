@@ -10,9 +10,11 @@ const pool = mysql2.createPool({
     user: dbConfig.USER,
     database: dbConfig.DB,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 1,
     queueLimit: 0
   })
+
+  
   
 
 export class MysqlSensorRepository implements ISensorsRepository{
@@ -23,34 +25,27 @@ export class MysqlSensorRepository implements ISensorsRepository{
     // }
 
     async save(sensor: Sensor): Promise<void> {
-      const connection = await pool.getConnection()
-
-      console.log('sucessfuly DB connection')
-
       try {
-        connection.query(`INSERT INTO sensors SET ?`, sensor);
+        pool.query(`INSERT INTO sensors SET ?`, sensor);
         console.log('data inserted: ', sensor)
         
       } catch (error) {
         console.log('faild to insert data: ', error)
       }
-      connection.release()
     }
 
 
-
-    async get(): Promise<any>  {
-      const connection = await pool.getConnection()
+    // o return any ta errado
+    async getAllSensor(): Promise<any>  {
       console.log('sucessfuly DB connection')
 
       try {
-        const [rows] =  await connection.query<ISensor[]>(
+        const [rows] =  await pool.query<ISensor[]>(
           "SELECT * FROM sensors", []);        
       return rows 
   
       } catch (error) {
         console.log('faild to insert data: ', error)
       }
-      connection.release()
     }
 }

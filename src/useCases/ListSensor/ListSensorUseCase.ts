@@ -6,9 +6,8 @@ export class ListSensorUseCase {
     ){}
 
     async list(){
-        const data = await this.sensorsRepository.get()
+        const data = await this.sensorsRepository.getAllSensor()
 
         return data;
     }
-
 }
