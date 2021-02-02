@@ -1,4 +1,3 @@
-import { Sensor } from "@/entities/Sensor";
 import { ISensorsRepository } from "@/repositories/ISensorsRepository";
 
 export class ListSensorUseCase {
@@ -6,7 +5,7 @@ export class ListSensorUseCase {
         private sensorsRepository: ISensorsRepository
     ){}
 
-    async execute(){
+    async list(){
         const data = await this.sensorsRepository.get()
 
         return data;

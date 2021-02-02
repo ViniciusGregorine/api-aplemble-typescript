@@ -10,7 +10,7 @@ export class ListSensorController {
         try {
             // const data = 
 
-            return res.status(201).send(await this.listSensorUseCase.execute())
+            return res.status(201).send(await this.listSensorUseCase.list())
 
         } catch (err) {
             return res.status(400).json({

@@ -2,11 +2,8 @@ import  mysql2 from 'mysql2/promise'
 import dbConfig from '../../config/dbConfig'
 import { ISensorsRepository } from '../ISensorsRepository'
 import { Sensor } from '@/entities/Sensor'
-import {IListSensorDTO} from '@/useCases/ListSensor/IListSensorDTO'
 import { ISensor } from '@/entities/ISensor'
-
 //import {createConnection, QueryError, RowDataPacket} from 'mysql2';
-
 
 const pool = mysql2.createPool({
     host: dbConfig.HOST,
@@ -25,8 +22,6 @@ export class MysqlSensorRepository implements ISensorsRepository{
     //   return sensor;
     // }
 
-
-    // next to do here
     async save(sensor: Sensor): Promise<void> {
       const connection = await pool.getConnection()
 
@@ -45,23 +40,17 @@ export class MysqlSensorRepository implements ISensorsRepository{
 
 
     async get(): Promise<any>  {
-      // não implementado 
       const connection = await pool.getConnection()
-
       console.log('sucessfuly DB connection')
 
       try {
-        
         const [rows] =  await connection.query<ISensor[]>(
           "SELECT * FROM sensors", []);        
       return rows 
-        
-      
+  
       } catch (error) {
         console.log('faild to insert data: ', error)
       }
       connection.release()
     }
-
-       
-    }
+}
