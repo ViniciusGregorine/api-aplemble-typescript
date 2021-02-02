@@ -3,4 +3,4 @@ export interface ICreateSensorDTO{
     device: number
     id_situation: number
     id_gap: number
-}55
+}
