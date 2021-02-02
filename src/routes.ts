@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { createSensorController } from './useCases/CreateSensor'
+import { listReadingController } from './useCases/ListReading'
 import { listSensorController } from './useCases/ListSensor'
 
 
@@ -17,6 +18,12 @@ routes.post('/sensor', (req, res) => {
 
 routes.get('/sensor', (req, res)=> {
   return listSensorController.handle(req, res);
+})
+
+
+routes.get('/reading', (req, res)=> {
+  return listReadingController.handler(req, res);
+  
 })
 
 export default routes

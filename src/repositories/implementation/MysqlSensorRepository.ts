@@ -3,6 +3,7 @@ import dbConfig from '../../config/dbConfig'
 import { ISensorsRepository } from '../ISensorsRepository'
 import { Sensor } from '@/entities/Sensor'
 import { ISensor } from '@/entities/ISensor'
+
 //import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 
 const pool = mysql2.createPool({
@@ -48,4 +49,7 @@ export class MysqlSensorRepository implements ISensorsRepository{
         console.log('faild to insert data: ', error)
       }
     }
+
+
+    
 }
