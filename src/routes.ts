@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { createSensorController } from './useCases/CreateSensor'
+import { getReadByPlaceController } from './useCases/GetReadByPlace'
 import { listReadingController } from './useCases/ListReading'
 import { listSensorController } from './useCases/ListSensor'
 
@@ -26,5 +27,8 @@ routes.get('/reading', (req, res)=> {
   
 })
 
-export default routes
+routes.get('/reading:place_id', (req, res)=> {
+  return getReadByPlaceController.handler(req, res);
+})
 
+export default routes

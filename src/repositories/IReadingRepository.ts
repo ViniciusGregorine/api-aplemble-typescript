@@ -1,8 +1,8 @@
 import {IReading} from '../entities/IReading'
 
 export interface IReadingRepository{
-    GetAllReading(): Promise<IReading[]>
-    GetReadingByPlaceId(id: number): Promise<IReading[]>
-    
+    getAllReading(): Promise<IReading[]>
+    GetReadingByPlaceId(id: string): Promise<IReading[]>
+
     // getReadingByReadingType(type: string): Promise<IReading[]>
 }
