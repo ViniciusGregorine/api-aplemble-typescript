@@ -1,22 +1,9 @@
-import  mysql2 from 'mysql2/promise'
-import dbConfig from '../../config/dbConfig'
+import {pool } from './poolConnection'
 import { ISensorsRepository } from '../ISensorsRepository'
 import { Sensor } from '@/entities/Sensor'
 import { ISensor } from '@/entities/ISensor'
-
 //import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 
-const pool = mysql2.createPool({
-    host: dbConfig.HOST,
-    user: dbConfig.USER,
-    database: dbConfig.DB,
-    waitForConnections: true,
-    connectionLimit: 1,
-    queueLimit: 0
-  })
-
-  
-  
 
 export class MysqlSensorRepository implements ISensorsRepository{
     // async findByType(description:String): Promise<Sensor>{
@@ -49,7 +36,4 @@ export class MysqlSensorRepository implements ISensorsRepository{
         console.log('faild to insert data: ', error)
       }
     }
-
-
-    
 }
