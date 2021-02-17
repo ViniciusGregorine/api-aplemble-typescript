@@ -23,12 +23,12 @@ routes.get('/sensor', (req, res)=> {
 
 
 routes.get('/reading', (req, res)=> {
-  return listReadingController.handler(req, res); // change to handle
+  return listReadingController.handle(req, res); // change to handle
   
 })
 
 routes.get('/reading:place_id', (req, res)=> {
-  return getReadByPlaceController.handler(req, res);
+  return getReadByPlaceController.handle(req, res);
 })
 
 export default routes

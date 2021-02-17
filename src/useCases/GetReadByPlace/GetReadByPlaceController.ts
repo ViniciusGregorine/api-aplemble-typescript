@@ -6,7 +6,7 @@ export class GetReadByPlaceController {
         private getReadByPlaceUseCase: GetReadByPlaceUseCase
     ){}
 
-    async handler(req: Request, res: Response){
+    async handle(req: Request, res: Response){
         try {
             const id = req.params.place_id
             const response = await this.getReadByPlaceUseCase.GetReadByPlceId(id)

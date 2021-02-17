@@ -6,7 +6,7 @@ export class ListReadingController{
         private listReadinguseCase: ListReadingUseCase
     ){}
 
-    async handler(req: Request, res: Response){
+    async handle(req: Request, res: Response){
         try {
             const response = await this.listReadinguseCase.ListAll()
             res.status(200).send(response)
