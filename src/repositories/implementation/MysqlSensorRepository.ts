@@ -2,7 +2,6 @@ import { pool } from './poolConnection'
 import { ISensorsRepository } from '../ISensorsRepository'
 import { Sensor } from '@/entities/Sensor'
 import { ISensor } from '@/entities/ISensor'
-import { DbResponseError } from '../../util/errors/MysqlResponseError'
 
 //import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 
@@ -15,10 +14,7 @@ export class MysqlSensorRepository implements ISensorsRepository{
     
       } catch (error) {
           console.log(error)
-          throw new DbResponseError(
-            `Error: ${JSON.stringify(error.sqlMessage)} COnde: ${
-              error.code}`)
-      
+          throw new Error 
       }
     }
 
