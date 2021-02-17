@@ -8,12 +8,11 @@ export class CreateSensorUseCase{
     ){}
 
     async execute(data: ICreateSensorDTO){
-       // const sensorAlreadyExist = await this.sensorsRepository.findByType(data.description)
+       const sensorAlreadyExist = await this.sensorsRepository.findByDescription(data.description)
 
-        if(false) throw new Error('sensor already exists.')
+        if(sensorAlreadyExist)  throw new Error
 
-        const sensor = new Sensor(data)
-
+       const sensor = new Sensor(data)
         await this.sensorsRepository.save(sensor)
     }
 }
