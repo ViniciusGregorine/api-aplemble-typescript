@@ -4,7 +4,7 @@ export class ListReadingUseCase{
     constructor (
         private readingRepository: IReadingRepository
     ){}
-
+    
      async ListAll() {
         try{
             const data = await this.readingRepository.getAllReading()

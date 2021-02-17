@@ -1,3 +1,4 @@
+import { DbResponseError } from "../../util/errors/MysqlResponseError";
 import { Sensor } from "../../entities/Sensor";
 import { ISensorsRepository } from "../../repositories/ISensorsRepository";
 import { ICreateSensorDTO } from './ICreateSensorDTO'
@@ -8,12 +9,11 @@ export class CreateSensorUseCase{
     ){}
 
     async execute(data: ICreateSensorDTO){
-       // const sensorAlreadyExist = await this.sensorsRepository.findByType(data.description)
+       const sensorAlreadyExist = await this.sensorsRepository.findByDescription(data.description)
 
-        if(false) throw new Error('sensor already exists.')
+        if(sensorAlreadyExist)  throw new DbResponseError( `the description`) 
 
         const sensor = new Sensor(data)
-
         await this.sensorsRepository.save(sensor)
     }
 }

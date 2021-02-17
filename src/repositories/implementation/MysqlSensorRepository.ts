@@ -1,32 +1,45 @@
-import {pool } from './poolConnection'
+import { pool } from './poolConnection'
 import { ISensorsRepository } from '../ISensorsRepository'
 import { Sensor } from '@/entities/Sensor'
 import { ISensor } from '@/entities/ISensor'
+import { DbResponseError } from '../../util/errors/MysqlResponseError'
+
 //import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 
-
 export class MysqlSensorRepository implements ISensorsRepository{
-    // async findByType(description:String): Promise<Sensor>{
-    //   const sensor = this.sensors.find(sensor => sensor.description === description)
-
-    //   return sensor;
-    // }
-
-    async save(sensor: Sensor): Promise<void> {
+    async save(sensor: Sensor): Promise<any> {
       try {
-        pool.query(`INSERT INTO sensors SET ?`, sensor);
-        console.log('data inserted: ', sensor)
-        
+        await pool.query(`INSERT INTO sensors SET ?`, sensor);
+        // console.log('data inserted: ', sensor)
+        // console.log('alosw')
+    
       } catch (error) {
-        console.log('faild to insert data: ', error)
+          console.log(error)
+          throw new DbResponseError(
+            `Error: ${JSON.stringify(error.sqlMessage)} COnde: ${
+              error.code}`)
+      
       }
     }
 
+    async findByDescription(description: string): Promise<any> {
+     
+      try {
+        const [rows] =  await pool.query<ISensor[]>(
+          "SELECT description FROM sensors", []);   
 
-    // o return any ta errado
+        const row = rows.find(Element => Element.description === description)
+        
+        return row
+        
+      } catch (error) {
+        console.log('faild to insert data:', error)
+        throw new error
+      }
+    }
+    
     async getAllSensor(): Promise<any>  {
-      console.log('sucessfuly DB connection')
-
+  
       try {
         const [rows] =  await pool.query<ISensor[]>(
           "SELECT * FROM sensors", []);        
