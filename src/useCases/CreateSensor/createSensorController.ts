@@ -21,7 +21,7 @@ export class CreateSensorController {
 
         } catch (err) {
             return res.status(400).json({
-                massege: err || 'unexpect error'
+                massege: err.massege || 'unexpect error'
             })
         }
     }

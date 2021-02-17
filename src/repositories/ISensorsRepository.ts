@@ -1,10 +1,10 @@
-
+import { ISensor } from '@/entities/ISensor'
 import {Sensor} from '../entities/Sensor'
 
 export interface ISensorsRepository{
-    findByDescription(type: string): Promise<Sensor>
+    // findByType(type: string): Promise<Sensor>
     save(sensor: Sensor): Promise<void>
-    getAllSensor(): Promise<Sensor[]> | undefined // change to getSensor
+    get(): Promise<ISensor[]> | undefined
 }
 
 /*
