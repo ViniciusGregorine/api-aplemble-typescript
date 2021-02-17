@@ -1,4 +1,4 @@
-import {IReading} from '../entities/IReading'
+import {IReading} from '@/entities/IReading'
 
 export interface IReadingRepository{
     getAllReading(): Promise<IReading[]>

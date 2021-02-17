@@ -1,5 +1,6 @@
-import { CreateSensorUseCase } from "./CreateSensorUseCase";
-import { Request, Response} from "express"
+import { CreateSensorUseCase } from '@/useCases/CreateSensor/CreateSensorUseCase'
+
+import { Request, Response} from 'express'
 
 
 export class CreateSensorController {
@@ -8,7 +9,7 @@ export class CreateSensorController {
     ){}
 
     async handle(req: Request, res: Response): Promise<Response>{
-        if (!req.body)  res.status(400).json({ message: "Content can not be empty!" });
+        if (!req.body)  res.status(400).json({ message: "Content can not be empty!" })
         
         const { description, device, id_situation, id_gap } = req.body
         console.log(req.body)

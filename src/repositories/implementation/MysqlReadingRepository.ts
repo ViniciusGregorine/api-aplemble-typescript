@@ -1,6 +1,7 @@
-import {pool} from './poolConnection'
-import { IReading } from "@/entities/IReading";
-import { IReadingRepository } from "../IReadingRepository";
+import {pool} from '@/repositories/implementation/poolConnection'
+import { IReading } from '@/entities/IReading'
+import { IReadingRepository } from '../IReadingRepository'
+
 
 
 export class MysqlReadingRepository implements IReadingRepository{

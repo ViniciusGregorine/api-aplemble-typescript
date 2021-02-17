@@ -1,5 +1,5 @@
-import { GetReadByPlaceUseCase } from "./GetReadByPlaceUseCase";
-import { Request, Response } from 'express';
+import { GetReadByPlaceUseCase } from '@/useCases/GetReadByPlace/GetReadByPlaceUseCase'
+import { Request, Response } from 'express'
 
 export class GetReadByPlaceController {
     constructor(

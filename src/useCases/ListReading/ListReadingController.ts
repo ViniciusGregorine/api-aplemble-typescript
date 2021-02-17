@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { ListReadingUseCase } from "./ListreadingUseCase";
+import { Request, Response } from 'express'
+import { ListReadingUseCase } from '@/useCases/ListReading/ListreadingUseCase'
 
 export class ListReadingController{
     constructor (

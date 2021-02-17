@@ -19,5 +19,7 @@
   },
   "scripts": {
     "dev:server": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules -r dotenv/config src/index.ts"
-  }
+  },
+  "repository": "https://github.com/ViniciusGregorine/api-masa-typescript.git",
+  "author": "ViniciusGregorine <viniciusgmenegon@gmail.com>"
 }

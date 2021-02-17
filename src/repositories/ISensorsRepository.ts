@@ -1,5 +1,4 @@
-
-import {Sensor} from '../entities/Sensor'
+import {Sensor} from '@/entities/Sensor'
 
 export interface ISensorsRepository{
     findByDescription(type: string): Promise<Sensor>

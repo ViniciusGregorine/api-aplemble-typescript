@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import { createSensorController } from './useCases/CreateSensor'
-import { getReadByPlaceController } from './useCases/GetReadByPlace'
-import { listReadingController } from './useCases/ListReading'
-import { listSensorController } from './useCases/ListSensor'
+import { createSensorController } from '@/useCases/CreateSensor'
+import { getReadByPlaceController } from '@/useCases/GetReadByPlace'
+import { listReadingController } from '@/useCases/ListReading'
+import { listSensorController } from '@/useCases/ListSensor'
 
 
 const routes = Router()

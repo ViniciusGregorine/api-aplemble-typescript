@@ -1,6 +1,6 @@
-import { CreateSensorUseCase } from './CreateSensorUseCase'
-import {MysqlSensorRepository} from '../../repositories/implementation/MysqlSensorRepository'
-import { CreateSensorController } from '../CreateSensor/createSensorController'
+import { CreateSensorUseCase } from '@/useCases/CreateSensor/CreateSensorUseCase'
+import {MysqlSensorRepository} from '@/repositories/implementation/MysqlSensorRepository'
+import { CreateSensorController } from '@/useCases/CreateSensor/createSensorController'
 
 const mysqlSensorRepository = new MysqlSensorRepository
 

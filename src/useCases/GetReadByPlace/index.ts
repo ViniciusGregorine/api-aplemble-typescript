@@ -1,6 +1,6 @@
-import { MysqlReadingRepository } from "../../repositories/implementation/MysqlReadingRepository";
-import { GetReadByPlaceController } from "./GetReadByPlaceController";
-import { GetReadByPlaceUseCase } from "./GetReadByPlaceUseCase";
+import { MysqlReadingRepository } from '@/repositories/implementation/MysqlReadingRepository'
+import { GetReadByPlaceController } from '@/useCases/GetReadByPlace/GetReadByPlaceController'
+import { GetReadByPlaceUseCase } from '@/useCases/GetReadByPlace/GetReadByPlaceUseCase'
 
 
 const mysqlReadingRepository = new MysqlReadingRepository()
