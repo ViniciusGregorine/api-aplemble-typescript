@@ -23,7 +23,7 @@ routes.get('/sensor', (req, res)=> {
 
 
 routes.get('/reading', (req, res)=> {
-  return listReadingController.handle(req, res); // change to handle
+  return listReadingController.handle(req, res); 
   
 })
 
