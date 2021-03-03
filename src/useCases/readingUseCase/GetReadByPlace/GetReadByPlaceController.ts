@@ -1,4 +1,4 @@
-import { GetReadByPlaceUseCase } from '@/useCases/GetReadByPlace/GetReadByPlaceUseCase'
+import { GetReadByPlaceUseCase } from '@/useCases/readingUseCase/GetReadByPlace/GetReadByPlaceUseCase'
 import { Request, Response } from 'express'
 
 export class GetReadByPlaceController {

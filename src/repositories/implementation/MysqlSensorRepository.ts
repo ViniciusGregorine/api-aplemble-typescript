@@ -1,5 +1,5 @@
 import { pool } from '@/repositories/implementation/poolConnection'
-import { ISensorsRepository } from '@/repositories/ISensorsRepository'
+import { ISensorsRepository } from '@/repositories/contracts/ISensorsRepository'
 import { Sensor } from '@/entities/Sensor'
 import { ISensor } from '@/entities/ISensor'
 

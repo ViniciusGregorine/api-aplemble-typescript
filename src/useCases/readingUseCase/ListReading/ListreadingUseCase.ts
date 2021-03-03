@@ -1,4 +1,4 @@
-import { IReadingRepository } from '@/repositories/IReadingRepository'
+import { IReadingRepository } from '@/repositories/contracts/IReadingRepository'
 
 export class ListReadingUseCase{
     constructor (

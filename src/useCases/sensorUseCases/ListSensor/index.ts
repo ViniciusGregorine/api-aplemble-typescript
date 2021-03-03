@@ -1,6 +1,6 @@
 import { MysqlSensorRepository } from '@/repositories/implementation/MysqlSensorRepository'
-import { ListSensorUseCase } from '@/useCases/ListSensor/ListSensorUseCase'
-import {ListSensorController} from '@/useCases/ListSensor/ListSensorController'
+import { ListSensorUseCase } from '@/useCases/sensorUseCases/ListSensor/ListSensorUseCase'
+import {ListSensorController} from '@/useCases/sensorUseCases/ListSensor/ListSensorController'
 
 const mysqlSensorRepository = new MysqlSensorRepository()
 

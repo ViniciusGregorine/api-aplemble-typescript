@@ -1,4 +1,4 @@
-import {ListSensorUseCase} from '@/useCases/ListSensor/ListSensorUseCase'
+import {ListSensorUseCase} from '@/useCases/sensorUseCases/ListSensor/ListSensorUseCase'
 import { Request, Response} from 'express'
 
 export class ListSensorController {

@@ -1,6 +1,6 @@
 import { Sensor } from '@/entities/Sensor'
-import { ISensorsRepository } from '@/repositories/ISensorsRepository'
-import { ICreateSensorDTO } from '@/useCases/CreateSensor/ICreateSensorDTO'
+import { ISensorsRepository } from '@/repositories/contracts/ISensorsRepository'
+import { ICreateSensorDTO } from '@/useCases/sensorUseCases/CreateSensor/ICreateSensorDTO'
 
 export class CreateSensorUseCase{
     constructor(

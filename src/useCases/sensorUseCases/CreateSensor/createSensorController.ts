@@ -1,4 +1,4 @@
-import { CreateSensorUseCase } from '@/useCases/CreateSensor/CreateSensorUseCase'
+import { CreateSensorUseCase } from '@/useCases/sensorUseCases/CreateSensor/CreateSensorUseCase'
 
 import { Request, Response} from 'express'
 
