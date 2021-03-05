@@ -1,19 +1,18 @@
 import { Request, Response } from 'express'
 import { ListReadingUseCase } from '@/useCases/readingUseCase/ListReading/ListreadingUseCase'
+import { HttpResponse, IController, HttpRequest, ok, errorHandle } from '@/routeAdapter/controller'
 
-export class ListReadingController{
+export class ListReadingController implements IController{
     constructor (
         private listReadinguseCase: ListReadingUseCase
     ){}
 
-    async handle(req: Request, res: Response){
+    async handle(req: HttpRequest): Promise<HttpResponse>{
         try {
             const response = await this.listReadinguseCase.ListAll()
-            res.status(200).send(response)
+            return ok(response)
         } catch (err) {
-            return res.status(400).json({
-                massege: err.massege || 'unexpect error from getting reading'
-            })
+            return errorHandle(err)
         }
     }
 
