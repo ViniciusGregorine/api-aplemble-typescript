@@ -4,6 +4,7 @@ export interface IController {
 
 export interface HttpRequest<T = any> {
     body?: T
+    params?: T
 }
 
 export interface HttpResponse<T = any> {
