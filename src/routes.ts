@@ -25,8 +25,6 @@ routes.get('/sensor', (req, res)=> {
 
 routes.get('/reading', adaptRoute(listReadingController))
 
-routes.get('/reading:place_id', (req, res)=> {
-  return getReadByPlaceController.handle(req, res);
-})
+routes.get('/reading:place_id', adaptRoute(getReadByPlaceController))
 
 export default routes

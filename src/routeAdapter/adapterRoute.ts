@@ -1,4 +1,4 @@
-import { IController } from './controller'
+import { IController } from './HttpHandle'
 
 import { Request, Response } from 'express'
 
