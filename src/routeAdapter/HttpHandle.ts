@@ -15,7 +15,7 @@ export interface HttpResponse<T = any> {
 export type ErrorType = {
     status: number,
     message: string,
-    stack: string
+    stack?: string
 }
 
 export const ok = (data: any): HttpResponse => ({
@@ -24,6 +24,6 @@ export const ok = (data: any): HttpResponse => ({
   })
 
   export const errorHandle = (error: ErrorType): HttpResponse => ({
-    statusCode: error.status,
-    data: error.message
+    statusCode: error.status || 500,
+    data: error.message || 'unexpect error'
   })

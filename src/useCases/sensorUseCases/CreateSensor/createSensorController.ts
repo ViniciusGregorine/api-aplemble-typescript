@@ -1,6 +1,5 @@
+import {ok, errorHandle, HttpRequest, HttpResponse } from '@/routeAdapter/HttpHandle'
 import { CreateSensorUseCase } from '@/useCases/sensorUseCases/CreateSensor/CreateSensorUseCase'
-
-import { Request, Response} from 'express'
 
 
 export class CreateSensorController {
@@ -8,8 +7,8 @@ export class CreateSensorController {
         private createSensorUseCase: CreateSensorUseCase
     ){}
 
-    async handle(req: Request, res: Response): Promise<Response>{
-        if (!req.body)  res.status(400).json({ message: "Content can not be empty!" })
+    async handle(req: HttpRequest): Promise<HttpResponse>{
+        if (!req.body) errorHandle({message: 'content cannot be ampty', status: 400})
         
         const { description, device, id_situation, id_gap } = req.body
         console.log(req.body)
@@ -18,12 +17,10 @@ export class CreateSensorController {
             await this.createSensorUseCase.execute({
                  description, device, id_situation, id_gap
             })
-            return res.status(201).send({massege: 'sucessifuly sensor created'})
+            return ok('sucessifuly sensor created')
 
-        } catch (err) {
-            return res.status(400).json({
-                massege: err || 'unexpect error'
-            })
+        } catch (error) {
+            return errorHandle(error)
         }
     }
 }

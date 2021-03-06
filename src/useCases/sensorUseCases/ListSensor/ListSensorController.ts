@@ -1,3 +1,4 @@
+import { errorHandle, HttpRequest, HttpResponse, ok } from '@/routeAdapter/HttpHandle'
 import {ListSensorUseCase} from '@/useCases/sensorUseCases/ListSensor/ListSensorUseCase'
 import { Request, Response} from 'express'
 
@@ -6,16 +7,14 @@ export class ListSensorController {
         private listSensorUseCase: ListSensorUseCase
     ){}
 
-    async handle(req: Request, res: Response): Promise<Response>{
+    async handle(req: HttpRequest): Promise<HttpResponse>{
         try {
-            // const data = 
+            const response = await this.listSensorUseCase.list() 
 
-            return res.status(201).send(await this.listSensorUseCase.list())
+            return ok(response)
 
         } catch (err) {
-            return res.status(400).json({
-                massege: err.massege || 'unexpect error'
-            })
+           return errorHandle(err)
         }
     }
 }

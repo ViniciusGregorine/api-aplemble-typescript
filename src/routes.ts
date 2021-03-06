@@ -14,13 +14,9 @@ routes.get('/', (req, res) => {
 })
 
 
-routes.post('/sensor', (req, res) => {
-    return createSensorController.handle(req, res);
-  })
+routes.post('/sensor', adaptRoute(createSensorController))
 
-routes.get('/sensor', (req, res)=> {
-  return listSensorController.handle(req, res);
-})
+routes.get('/sensor', adaptRoute(listSensorController))
 
 
 routes.get('/reading', adaptRoute(listReadingController))
