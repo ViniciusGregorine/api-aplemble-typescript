@@ -1,20 +1,21 @@
+import { errorHandle, HttpRequest, HttpResponse, IController, ok } from '@/routeAdapter/HttpHandle'
 import { GetReadByPlaceUseCase } from '@/useCases/readingUseCase/GetReadByPlace/GetReadByPlaceUseCase'
 import { Request, Response } from 'express'
 
-export class GetReadByPlaceController {
+export class GetReadByPlaceController implements IController{
     constructor(
         private getReadByPlaceUseCase: GetReadByPlaceUseCase
     ){}
 
-    async handle(req: Request, res: Response){
+    async handle(req: HttpRequest): Promise<HttpResponse>{
         try {
             const id = req.params.place_id
             const response = await this.getReadByPlaceUseCase.GetReadByPlceId(id)
 
-            return res.status(200).send(response)
+            return ok(response)
 
-        } catch {
-            throw new Error
+        } catch(error) {
+            return errorHandle(error)
        }
     }
 }

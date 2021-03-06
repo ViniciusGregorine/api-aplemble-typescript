@@ -1,6 +1,5 @@
-import { Request, Response } from 'express'
 import { ListReadingUseCase } from '@/useCases/readingUseCase/ListReading/ListreadingUseCase'
-import { HttpResponse, IController, HttpRequest, ok, errorHandle } from '@/routeAdapter/controller'
+import { HttpResponse, IController, HttpRequest, ok, errorHandle } from '@/routeAdapter/HttpHandle'
 
 export class ListReadingController implements IController{
     constructor (
@@ -15,5 +14,4 @@ export class ListReadingController implements IController{
             return errorHandle(err)
         }
     }
-
 }

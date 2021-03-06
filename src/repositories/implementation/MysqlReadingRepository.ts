@@ -8,7 +8,7 @@ export class MysqlReadingRepository implements IReadingRepository{
   async getAllReading(): Promise<any>{
     try{
       const [rows] =  await pool.query<IReading[]>(
-          "SELECT * FROM Readings", []);   
+          "SELECT * FROM `readings`", []);   
       return rows
 
     }catch (err){
