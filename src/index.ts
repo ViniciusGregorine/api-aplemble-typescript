@@ -4,6 +4,7 @@ import rootRoute from './routes/rootRoute'
 
 import express from 'express'
 import cors from 'cors'
+import placeRoute from './routes/placeRoute'
 
 
 const app = express()
@@ -13,9 +14,10 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.use('/', sensorRoutes)
-app.use('/', readingRoutes)
-app.use('/', rootRoute)
+app.use(sensorRoutes)
+app.use(readingRoutes)
+app.use(rootRoute)
+app.use(placeRoute)
 
 
 app.listen(port, () => {
