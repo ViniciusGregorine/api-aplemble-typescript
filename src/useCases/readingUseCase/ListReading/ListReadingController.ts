@@ -1,5 +1,5 @@
-import { ListReadingUseCase } from '@/useCases/readingUseCase/ListReading/ListreadingUseCase'
 import { HttpResponse, IController, HttpRequest, ok, errorHandle } from '@/routeAdapter/HttpHandle'
+import { ListReadingUseCase } from './ListreadingUseCase'
 
 export class ListReadingController implements IController{
     constructor (

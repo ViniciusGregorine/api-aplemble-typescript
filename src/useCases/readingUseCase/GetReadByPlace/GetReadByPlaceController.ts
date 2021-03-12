@@ -1,6 +1,5 @@
 import { errorHandle, HttpRequest, HttpResponse, IController, ok } from '@/routeAdapter/HttpHandle'
 import { GetReadByPlaceUseCase } from '@/useCases/readingUseCase/GetReadByPlace/GetReadByPlaceUseCase'
-import { Request, Response } from 'express'
 
 export class GetReadByPlaceController implements IController{
     constructor(
