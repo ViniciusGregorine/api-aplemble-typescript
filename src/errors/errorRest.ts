@@ -12,5 +12,9 @@ export class ErrorREST extends Error {
      badRequest: {
          status: 400,
          message: "something weong with your request"
-     }
+     },
+     LoginbadRequest: {
+        status: 403,
+        message:"cannot find email or password"
+    }
  })
