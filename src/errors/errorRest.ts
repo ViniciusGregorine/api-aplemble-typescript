@@ -11,10 +11,10 @@ export class ErrorREST extends Error {
  export const error = ({
      badRequest: {
          status: 400,
-         message: "something weong with your request"
+         message: "something wrong with your request"
      },
      LoginbadRequest: {
         status: 403,
-        message:"cannot find email or password"
+        message:"auth faild"
     }
  })
