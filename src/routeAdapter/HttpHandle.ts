@@ -5,6 +5,7 @@ export interface IController {
 export interface HttpRequest<T = any> {
     body?: T
     params?: T
+    headers?: T
 }
 
 export interface HttpResponse<T = any> {
@@ -12,16 +13,17 @@ export interface HttpResponse<T = any> {
     data: T
 }
 
-export type ErrorType = {
-    status: number,
-    message: string,
-    stack?: string
-}
 
 export const ok = (data: any): HttpResponse => ({
     statusCode: 200,
     data: data
   })
+  
+export type ErrorType = {
+    status: number,
+    message: string,
+    stack?: string
+}
 
   export const errorHandle = (error: ErrorType): HttpResponse => ({
     statusCode: error.status || 500,
