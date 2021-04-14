@@ -9,7 +9,7 @@ export class CreateJwtToken{
                 name: data.name,
                 _id: data.id
             },
-            process.env.JWT_KEY!,
+                process.env.JWT_KEY!,
             {
                 expiresIn: "1h"
             }
