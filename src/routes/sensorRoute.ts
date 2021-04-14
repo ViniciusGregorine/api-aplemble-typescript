@@ -1,12 +1,14 @@
-import { Router } from 'express'
+import  {Router, Response, Request, NextFunction} from 'express'
 import { createSensorController } from '@/useCases/sensorUseCases/CreateSensor'
 import { listSensorController } from '@/useCases/sensorUseCases/ListSensor'
 import { adaptRoute } from '../routeAdapter/adapterRoute'
+import { authMiddleware } from '@/routeAdapter/authMiddleware'
 
 const sensorRoutes = Router()
 
-sensorRoutes.post('/sensor', adaptRoute(createSensorController))
 
-sensorRoutes.get('/sensor', adaptRoute(listSensorController))
+sensorRoutes.post('/sensor', authMiddleware, adaptRoute(createSensorController))
+
+sensorRoutes.get('/sensor', authMiddleware, adaptRoute(listSensorController))
 
 export default sensorRoutes
