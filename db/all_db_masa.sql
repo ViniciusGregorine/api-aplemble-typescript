@@ -76,7 +76,7 @@ create table if not exists addresses (
 	id tinyint not null primary key auto_increment unique,
     street varchar(40) not null,
     number varchar(6) not null,
-    neighborhood varchar(40) not null,
+    neighborhood varchar(50) not null,
     complement varchar(50),
     city varchar(40) not null default "Sombrio"
 );
