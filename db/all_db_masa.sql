@@ -1,7 +1,7 @@
-create database masa_logic_3;
-use masa_logic_3;
+create database if not exists masa_building;
+use masa_building;
 
-create table readings (
+create table if not exists readings (
 	id int not null  auto_increment unique,
     date date not null default(now()),
     hour time not null default now(),
@@ -13,9 +13,9 @@ create table readings (
     primary key(id)
 );
 
-create table sensors (
+create table if not exists sensors (
 	id tinyint not null auto_increment unique,
-	description varchar(40) not null unique,
+	description varchar(50) not null unique,
 	installation_date date default now(),
 	device bool default 0,
 	id_situation tinyint not null,
@@ -24,26 +24,26 @@ create table sensors (
     primary key(id)
 );
 
-create table gaps (
+create table if not exists gaps (
 	id int not null  auto_increment unique,
 	description int not null unique,
     
     primary key(id)
 );
 
-create table situations (
+create table if not exists situations (
 	id tinyint not null auto_increment unique,
-    description varchar(30) not null unique,
+    description varchar(40) not null unique,
 
 	primary key(id)
 );
 
-create table places (
+create table  if not exists places (
 	id tinyint not null auto_increment unique,
     sensor_temp bool not null default true ,
     sensor_humi bool not null default true,
-    description  varchar(25) not null unique,
-    note varchar(25),
+    description  varchar(40) not null unique,
+    note varchar(200),
     lim_temperature decimal(5, 2),
     id_dimension tinyint not null,
     id_material tinyint not null,
@@ -52,36 +52,37 @@ create table places (
     primary key (id)
 );
 
-create table materials (
+create table if not exists materials (
 	id tinyint not null primary key auto_increment unique,
 	description varchar(25) not null unique
 );
 
-create table dimensions (
+create table if not exists dimensions (
 	id tinyint not null primary key auto_increment unique,
 	height decimal(5, 2) not null,
 	width decimal(5, 2) not null,
 	length decimal(5, 2) not null
 );
 
-create table institutions (
+create table if not exists institutions (
 	id tinyint not null primary key auto_increment unique,
-  name varchar(50) not null unique,
-  email varchar(35) not null unique,
-  password varchar(25) not null,
-  id_adress tinyint not null
+  name varchar(60) not null unique,
+  email varchar(60) not null unique,
+  password varchar(60) not null,
+  id_address tinyint not null
 );
 
-create table adresses (
+create table if not exists addresses (
 	id tinyint not null primary key auto_increment unique,
-    street varchar(35) not null,
-    number varchar(5) not null,
-    neighborhood varchar(25) not null,
+    street varchar(40) not null,
+    number varchar(6) not null,
+    neighborhood varchar(50) not null,
     complement varchar(50),
     city varchar(40) not null default "Sombrio"
 );
 
-ALTER TABLE sensors
+-- fks 
+ALTER TABLE  sensors
 ADD CONSTRAINT fk_situation
 FOREIGN KEY (id_situation) REFERENCES situations(id),
 ADD CONSTRAINT fk_gap
@@ -93,7 +94,6 @@ FOREIGN KEY (id_place) REFERENCES places(id),
 ADD CONSTRAINT fk_sensor
 FOREIGN KEY (id_sensor) REFERENCES	 sensors(id);
 
--- fks 
 ALTER TABLE places
 ADD CONSTRAINT fk_dimension
 FOREIGN KEY (id_dimension) REFERENCES dimensions(id),
@@ -103,5 +103,5 @@ ADD CONSTRAINT fk_instituition
 FOREIGN KEY (id_institution) REFERENCES institutions(id);
 
 ALTER TABLE institutions
-ADD CONSTRAINT fk_adress
-FOREIGN KEY (id_adress) REFERENCES adresses(id);
+ADD CONSTRAINT fk_address
+FOREIGN KEY (id_address) REFERENCES addresses(id);
