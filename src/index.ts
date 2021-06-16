@@ -11,6 +11,7 @@ import instituionsRouter from './routes/institutionsRoute'
 const app = express()
 const port = 3456
 
+
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
