@@ -4,14 +4,28 @@ import { GetReadByPlaceUseCase } from '@/useCases/readingUseCase/GetReadByPlace/
 export class GetReadByPlaceController implements IController{
     constructor(
         private getReadByPlaceUseCase: GetReadByPlaceUseCase
-    ){}
+    ){ }
 
     async handle(req: HttpRequest): Promise<HttpResponse>{
+        // gambiarra exclua isso depois pelo amor de deus 
+        function formatDate(date: Date){
+            const dateFormat: String = ((date.getDate() )) + "/" + ((date.getMonth() + 1)) + "/" + date.getFullYear()
+            return dateFormat
+        }
+        
         try {
             const id = req.params.place_id
-            const response = await this.getReadByPlaceUseCase.GetReadByPlceId(id)
+            const data = await this.getReadByPlaceUseCase.GetReadByPlceId(id)
 
-            return ok(response)
+            const parseReading = data.map(
+            entity => ({
+                ...entity,
+                date: formatDate(new Date(entity.date))
+
+            })
+            )
+
+            return ok(parseReading)
 
         } catch(error) {
             return errorHandle(error)
