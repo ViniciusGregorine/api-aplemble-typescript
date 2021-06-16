@@ -1,7 +1,7 @@
-import { pool } from '@/repositories/implementation/poolConnection'
-import { ISensorsRepository } from '@/repositories/contracts/ISensorsRepository'
-import { Sensor } from '@/entities/Sensor'
-import { ISensor } from '@/entities/ISensor'
+import { pool } from '@/infra/repositories/implementation/poolConnection'
+import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
+import { Sensor } from '@/domain/entities/Sensor'
+import { ISensor } from '@/domain/entities/ISensor'
 
 //import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 

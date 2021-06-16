@@ -1,5 +1,5 @@
-import {pool} from '@/repositories/implementation/poolConnection'
-import { IReading } from '@/entities/IReading'
+import {pool} from '@/infra/repositories/implementation/poolConnection'
+import { IReading } from '@/domain/entities/IReading'
 import { IReadingRepository } from '../contracts/IReadingRepository'
 
 

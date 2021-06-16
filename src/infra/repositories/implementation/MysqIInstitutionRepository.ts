@@ -1,7 +1,7 @@
-import { pool } from '@/repositories/implementation/poolConnection'
-import { IInstitutionRepository } from '@/repositories/contracts/IInstitutionRepository'
-import { IInstitution } from '@/entities/IInstitution';
-import { ErrorREST } from '@/errors/errorRest';
+import { pool } from '@/infra/repositories/implementation/poolConnection'
+import { IInstitutionRepository } from '@/infra/repositories/contracts/IInstitutionRepository'
+import { IInstitution } from '@/domain/entities/IInstitution';
+import { ErrorREST } from '@/domain/errors/errorRest';
 
 export class MysqlInstitutionRepository implements IInstitutionRepository{
     async save(institution: IInstitution): Promise<any> {

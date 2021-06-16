@@ -1,5 +1,5 @@
-import { Sensor } from '@/entities/Sensor'
-import { ISensorsRepository } from '@/repositories/contracts/ISensorsRepository'
+import { Sensor } from '@/domain/entities/Sensor'
+import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
 import { ICreateSensorDTO } from '@/useCases/sensorUseCases/CreateSensor/ICreateSensorDTO'
 
 export class CreateSensorUseCase{

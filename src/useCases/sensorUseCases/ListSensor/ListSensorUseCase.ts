@@ -1,4 +1,4 @@
-import { ISensorsRepository } from '@/repositories/contracts/ISensorsRepository'
+import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
 
 export class ListSensorUseCase {
     constructor(
