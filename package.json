@@ -22,7 +22,11 @@
     "mysql2": "^2.2.5"
   },
   "scripts": {
-    "dev:server": "ts-node-dev  --trace-warnings --transpile-only --respawn --ignore-watch node_modules -r dotenv/config -r tsconfig-paths/register src/index.ts"
+    "dev": "ts-node-dev  --trace-warnings --transpile-only --respawn --ignore-watch node_modules -r dotenv/config -r tsconfig-paths/register src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "ts-node -r tsconfig-paths/register -r dotenv/config dist/index.js",
+
+    "build:start": "npm run build && npm run start"
   },
   "repository": "https://github.com/ViniciusGregorine/api-masa-typescript.git",
   "author": "ViniciusGregorine <viniciusgmenegon@gmail.com>"
