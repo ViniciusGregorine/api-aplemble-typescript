@@ -1,4 +1,4 @@
-import { MysqlReadingRepository } from '@/repositories/implementation/MysqlReadingRepository'
+import { MysqlReadingRepository } from '@/infra/repositories/implementation/MysqlReadingRepository'
 import { GetReadByPlaceController } from '@/useCases/readingUseCase/GetReadByPlace/GetReadByPlaceController'
 import { GetReadByPlaceUseCase } from '@/useCases/readingUseCase/GetReadByPlace/GetReadByPlaceUseCase'
 

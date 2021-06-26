@@ -1,4 +1,4 @@
-import { IInstitution } from "@/entities/IInstitution";
+import { IInstitution } from "@/domain/entities/IInstitution";
 import jwt from 'jsonwebtoken'
 
 export class CreateJwtToken{

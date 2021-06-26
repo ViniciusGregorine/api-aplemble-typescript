@@ -1,4 +1,4 @@
-import { IReadingRepository } from '@/repositories/contracts/IReadingRepository'
+import { IReadingRepository } from '@/infra/repositories/contracts/IReadingRepository'
 
 export class GetReadByPlaceUseCase{
     constructor (

@@ -1,4 +1,4 @@
-import { MysqlInstitutionRepository } from "@/repositories/implementation/MysqIInstitutionRepository";
+import { MysqlInstitutionRepository } from "@/infra/repositories/implementation/MysqIInstitutionRepository";
 import { CreateJwtToken } from "@/validation/CreateJwtToken";
 import { LoginController } from "./loginController";
 import { LoginUseCase } from "./loginUseCase";

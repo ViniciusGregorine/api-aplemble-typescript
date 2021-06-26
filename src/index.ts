@@ -1,16 +1,16 @@
 import sensorRoutes from './routes/sensorRoute'
 import readingRoutes from './routes/readingRoute'
 import rootRoute from './routes/rootRoute'
-
-import express from 'express'
-import cors from 'cors'
 import placeRoute from './routes/placeRoute'
 import instituionsRouter from './routes/institutionsRoute'
 
 
-const app = express()
+import cors from 'cors'
+import express from 'express'
+
 const port = 3456
 
+const app = express()
 
 app.use(cors())
 app.use(express.json())

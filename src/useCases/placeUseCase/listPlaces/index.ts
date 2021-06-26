@@ -1,4 +1,4 @@
-import { MysqlPlaceRepository } from "@/repositories/implementation/MysqlPlaceRepository";
+import { MysqlPlaceRepository } from "@/infra/repositories/implementation/MysqlPlaceRepository";
 import  {ListPlaceControler} from '@/useCases/placeUseCase/listPlaces/listPlacesController' 
 import { ListPlaceUseCase } from "./ListPlaceUseCase";
 

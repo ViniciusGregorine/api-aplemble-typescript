@@ -1,6 +1,6 @@
-import { IInstitution } from "@/entities/IInstitution";
-import { ErrorREST, error} from "@/errors/errorRest";
-import { IInstitutionRepository } from "@/repositories/contracts/IInstitutionRepository";
+import { IInstitution } from "@/domain/entities/IInstitution";
+import { ErrorREST, error} from "@/domain/errors/errorRest";
+import { IInstitutionRepository } from "@/infra/repositories/contracts/IInstitutionRepository";
 import { LoginDTO } from "./loginDTO";
 import { CreateJwtToken } from "@/validation/CreateJwtToken";
 

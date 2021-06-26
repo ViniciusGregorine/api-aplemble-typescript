@@ -1,4 +1,4 @@
-import {IInstitution} from '@/entities/IInstitution'
+import {IInstitution} from '@/domain/entities/IInstitution'
 
 export interface IInstitutionRepository{
     findByEmail(type: string): Promise<IInstitution>

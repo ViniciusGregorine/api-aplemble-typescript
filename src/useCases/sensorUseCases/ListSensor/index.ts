@@ -1,4 +1,4 @@
-import { MysqlSensorRepository } from '@/repositories/implementation/MysqlSensorRepository'
+import { MysqlSensorRepository } from '@/infra/repositories/implementation/MysqlSensorRepository'
 import { ListSensorUseCase } from '@/useCases/sensorUseCases/ListSensor/ListSensorUseCase'
 import {ListSensorController} from '@/useCases/sensorUseCases/ListSensor/ListSensorController'
 

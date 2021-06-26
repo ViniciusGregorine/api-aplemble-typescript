@@ -1,6 +1,6 @@
-import {pool} from '@/repositories/implementation/poolConnection'
-import { IPlace } from '@/entities/IPlace'
-import {IPlaceRepository} from '@/repositories/contracts/IPlaceRepository'
+import {pool} from '@/infra/repositories/implementation/poolConnection'
+import { IPlace } from '@/domain/entities/IPlace'
+import {IPlaceRepository} from '@/infra/repositories/contracts/IPlaceRepository'
 
 
 
@@ -13,6 +13,7 @@ export class MysqlPlaceRepository implements IPlaceRepository{
 
     }catch (err){
       throw new Error(err)
+      
     }
   }
 }

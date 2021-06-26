@@ -1,4 +1,4 @@
-import  {Router, Response, Request, NextFunction} from 'express'
+import  {Router,} from 'express'
 import { createSensorController } from '@/useCases/sensorUseCases/CreateSensor'
 import { listSensorController } from '@/useCases/sensorUseCases/ListSensor'
 import { adaptRoute } from '../routeAdapter/adapterRoute'

@@ -1,4 +1,4 @@
-import { IPlaceRepository } from '@/repositories/contracts/IPlaceRepository'
+import { IPlaceRepository } from '@/infra/repositories/contracts/IPlaceRepository'
 
 export class ListPlaceUseCase {
     constructor (
