@@ -13,6 +13,7 @@ export class MysqlPlaceRepository implements IPlaceRepository{
 
     }catch (err){
       throw new Error(err)
+      
     }
   }
 }

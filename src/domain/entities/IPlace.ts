@@ -13,5 +13,4 @@ export interface IPlace extends RowDataPacket{
     id_dimension: number
     id_material: number
     id_institution: number
-
 }
