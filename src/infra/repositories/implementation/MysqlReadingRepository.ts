@@ -32,4 +32,14 @@ export class MysqlReadingRepository implements IReadingRepository{
 
     }
   }
+
+  async save(reading: any): Promise<any> {
+      try {
+        await pool.query(`INSERT INTO readings SET ?`, reading);
+    
+      } catch (error) {
+          console.log(error)
+          throw new Error 
+      }
+    }
 }
