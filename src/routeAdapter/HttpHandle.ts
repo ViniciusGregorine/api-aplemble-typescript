@@ -34,6 +34,6 @@ export type ErrorType = {
     
     data: {
       status: error.status || 500,
-      massege: error.message || 'unexpect error'
+      massege: error.message || 'unexpect error',
     }
   })
