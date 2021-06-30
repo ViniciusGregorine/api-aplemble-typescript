@@ -1,4 +1,3 @@
-
 export class Reading {
     public id!: number
 
@@ -9,8 +8,7 @@ export class Reading {
     public id_place!: number
     public id_sensor!: number  
 
-      constructor(props: Omit<Reading, 'id'>, id?: string){
-        Object.assign(this, props)
+    constructor(props: Omit<Reading, 'id'>, id?: string){
+      Object.assign(this, props)
     }
-
 }
