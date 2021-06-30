@@ -1,4 +1,4 @@
-export interface IReadingDOT {
+export interface IReadingDTO {
     id?: number
 
     date?: string
