@@ -39,7 +39,7 @@ export class MysqlReadingRepository implements IReadingRepository{
     
       } catch (error) {
           console.log(error)
-          throw new Error 
+          throw new Error(error.sqlMessage) 
       }
     }
 }
