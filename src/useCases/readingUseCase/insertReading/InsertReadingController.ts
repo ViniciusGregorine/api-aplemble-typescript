@@ -12,12 +12,12 @@ export class InsertReadingController {
          const requiredParans = ['id_place', 'id_sensor']
 
         for(const param of requiredParans){
-            if(!req.body[param]) return errorHandle({message: `missing param: ${param}`, status: 400})
+            if(!req.body[param]) return errorHandle({message: `missing param: '${param}' `, status: 400})
             }
 
         try {
             await this.insertReadingUseCase.execute(req.body)
-            return ok('sucessifuly sensor created')
+            return ok('sucessifuly insert reading')
 
         } catch (error) {
             return errorHandle(error)
