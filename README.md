@@ -7,6 +7,6 @@ build an API to manage the input data from sensors to a database, and manage the
 - typeScript
 - NodeJs
 - Express 
-- Msql2 
+- Mysql2 
 
 ---
