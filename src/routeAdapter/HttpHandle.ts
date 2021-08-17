@@ -5,6 +5,7 @@ export interface IController {
 export interface HttpRequest<T = any> {
     body?: T
     params?: T
+    query?: T
     header?: T
 }
 
