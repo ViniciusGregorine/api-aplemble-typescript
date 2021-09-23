@@ -15,7 +15,7 @@ export class LoginController implements IController{
         try {
             const jwt = await this.loginUseCase.login({email: email, password: password})
             return ok(jwt)
-        } catch (err) {
+        } catch (err: any) {
            return errorHandle(err.response)
         } 
     }

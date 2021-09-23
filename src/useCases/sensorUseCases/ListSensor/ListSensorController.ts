@@ -13,7 +13,7 @@ export class ListSensorController {
 
             return ok(response)
 
-        } catch (err) {
+        } catch (err: any) {
            return errorHandle(err)
         }
     }

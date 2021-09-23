@@ -10,7 +10,7 @@ export class ListReadingController implements IController{
         try {
             const response = await this.listReadinguseCase.ListAll()
             return ok(response)
-        } catch (err) {
+        } catch (err: any) {
             return errorHandle(err)
         }
     }

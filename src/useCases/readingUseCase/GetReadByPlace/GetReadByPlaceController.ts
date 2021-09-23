@@ -27,7 +27,7 @@ export class GetReadByPlaceController implements IController{
 
             return ok(parseReading)
 
-        } catch(error) {
+        } catch(error: any) {
             return errorHandle(error)
        }
     }

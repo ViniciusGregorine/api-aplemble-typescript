@@ -11,7 +11,7 @@ export class ListPlaceControler implements IController{
             const response = await this.listPlaceUseCase.listAll()
             return ok(response)
 
-        } catch(error) {
+        } catch(error: any) {
             return errorHandle(error)
        }
     }

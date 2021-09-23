@@ -19,7 +19,7 @@ export class CreateSensorController {
             })
             return ok('sucessifuly sensor created')
 
-        } catch (error) {
+        } catch (error: any) {
             return errorHandle(error)
         }
     }
