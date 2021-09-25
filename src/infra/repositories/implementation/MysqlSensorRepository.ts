@@ -28,7 +28,7 @@ export class MysqlSensorRepository implements ISensorsRepository{
         
         return row
         
-      } catch (error) {
+      } catch (error: any) {
         console.log('faild to insert data:', error)
         throw new error
       }

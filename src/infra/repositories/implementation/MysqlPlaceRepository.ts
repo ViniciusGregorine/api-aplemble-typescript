@@ -11,7 +11,7 @@ export class MysqlPlaceRepository implements IPlaceRepository{
           "SELECT * FROM `places`", []);   
       return rows
 
-    }catch (err){
+    }catch (err: any){
       throw new Error(err)
       
     }

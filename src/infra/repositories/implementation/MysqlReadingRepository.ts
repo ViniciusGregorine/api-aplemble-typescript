@@ -37,7 +37,7 @@ export class MysqlReadingRepository implements IReadingRepository{
       try {
         await pool.query(`INSERT INTO readings SET ?`, reading);
     
-      } catch (error) {
+      } catch (error: any) {
           console.log(error)
           throw new Error(error.sqlMessage) 
       }

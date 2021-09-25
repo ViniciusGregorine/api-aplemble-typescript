@@ -25,7 +25,7 @@ export class MysqlInstitutionRepository implements IInstitutionRepository{
         console.log(row)
         return row
         
-      } catch (error) {
+      } catch (error: any) {
         console.log('faild to find email:', error)
         throw new ErrorREST(error)
 
@@ -40,7 +40,7 @@ export class MysqlInstitutionRepository implements IInstitutionRepository{
     
       return rows
 
-      } catch (error) {
+      } catch (error: any) {
         console.log('faild to insert data: ', error)
         throw new ErrorREST(error)
 
