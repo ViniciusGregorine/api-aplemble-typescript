@@ -45,4 +45,14 @@ export class MysqlSensorRepository implements ISensorsRepository{
         console.log('faild to insert data: ', error)
       }
     }
+
+    async deleteSensor(id: number): Promise<void> {
+      try {
+        await pool.query(`DELETE FROM sensors WHERE id=${id}`);
+      } catch (error: any) {
+        console.log(error)
+        throw new Error(error)
+      }
+
+    }
 }
