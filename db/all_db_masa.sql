@@ -8,7 +8,7 @@ create table if not exists readings (
     value_humidity decimal(5, 2) not null,
     value_temperature decimal(5, 2) not null,
     id_place tinyint not null,
-    id_sensor tinyint not null,
+    id_sensor tinyint,
     
     primary key(id)
 );
@@ -92,7 +92,7 @@ ALTER TABLE readings
 ADD CONSTRAINT fk_place
 FOREIGN KEY (id_place) REFERENCES places(id),
 ADD CONSTRAINT fk_sensor
-FOREIGN KEY (id_sensor) REFERENCES	 sensors(id);
+FOREIGN KEY (id_sensor) REFERENCES	 sensors(id) ON DELETE SET NULL;
 
 ALTER TABLE places
 ADD CONSTRAINT fk_dimension
