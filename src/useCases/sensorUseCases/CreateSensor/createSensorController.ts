@@ -11,7 +11,6 @@ export class CreateSensorController {
         if (!req.body) errorHandle({message: 'content cannot be ampty', status: 400})
         
         const { description, device, id_situation, id_gap } = req.body
-        console.log(req.body)
   
         try {
             await this.createSensorUseCase.execute({
