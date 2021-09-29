@@ -9,8 +9,6 @@ export class MysqlSensorRepository implements ISensorsRepository{
     async save(sensor: Sensor): Promise<any> {
       try {
         await pool.query(`INSERT INTO sensors SET ?`, sensor);
-        // console.log('data inserted: ', sensor)
-        // console.log('alosw')
     
       } catch (error) {
           console.log(error)
@@ -45,14 +43,13 @@ export class MysqlSensorRepository implements ISensorsRepository{
         console.log('faild to insert data: ', error)
       }
     }
-
+  
     async deleteSensor(id: number): Promise<void> {
       try {
-        await pool.query(`DELETE FROM sensors WHERE id=${id}`);
+        await pool.query('DELETE FROM `sensors` WHERE `id` = ?', [id]);
       } catch (error: any) {
         console.log(error)
         throw new Error(error)
       }
-
     }
 }
