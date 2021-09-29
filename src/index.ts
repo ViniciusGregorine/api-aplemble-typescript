@@ -8,7 +8,7 @@ import instituionsRouter from './routes/institutionsRoute'
 import cors from 'cors'
 import express from 'express'
 
-const port = 3456
+const port = 3001
 
 const app = express()
 
@@ -24,5 +24,5 @@ app.use(instituionsRouter)
 
 
 app.listen(port, () => {
-    console.log('running on: http://localhost:' + port)
+    console.log('running on: http://localhost:' + port) 
 })
