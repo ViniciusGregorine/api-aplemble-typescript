@@ -2,6 +2,7 @@ import { pool } from '@/infra/repositories/implementation/poolConnection'
 import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
 import { Sensor } from '@/domain/entities/Sensor'
 import { ISensor } from '@/domain/entities/ISensor'
+import { ErrorREST } from '@/domain/errors/errorRest';
 
 
 export class MysqlSensorRepository implements ISensorsRepository{
@@ -27,7 +28,7 @@ export class MysqlSensorRepository implements ISensorsRepository{
         
       } catch (error: any) {
         console.log('faild to insert data:', error)
-        throw new error
+        throw new ErrorREST(error)
       }
     }
     

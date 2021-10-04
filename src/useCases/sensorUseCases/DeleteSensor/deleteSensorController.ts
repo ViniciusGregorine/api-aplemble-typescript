@@ -24,7 +24,7 @@ export class DeleteSensorController {
             return ok('deleted')
             
         } catch (error: any) {
-            return errorHandle(error)
+            return errorHandle(error.response)
         }
     }
 }
