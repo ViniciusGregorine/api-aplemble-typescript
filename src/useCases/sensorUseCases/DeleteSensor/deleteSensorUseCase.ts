@@ -11,6 +11,6 @@ export class DeleteSensorUseCase{
     
         // if(!sensorAlreadyExist)  throw new Error
 
-        await this.sensorsRepository.deleteSensor(data.id)
+        await this.sensorsRepository.deleteSensor(data.description)
     }
 }

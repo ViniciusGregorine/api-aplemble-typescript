@@ -3,7 +3,6 @@ import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepos
 import { Sensor } from '@/domain/entities/Sensor'
 import { ISensor } from '@/domain/entities/ISensor'
 
-//import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 
 export class MysqlSensorRepository implements ISensorsRepository{
     async save(sensor: Sensor): Promise<any> {
@@ -44,9 +43,10 @@ export class MysqlSensorRepository implements ISensorsRepository{
       }
     }
   
-    async deleteSensor(id: number): Promise<void> {
+    async deleteSensor(sensor: number | string): Promise<void> {
       try {
-        await pool.query('DELETE FROM `sensors` WHERE `id` = ?', [id]);
+        await pool.query('DELETE FROM `sensors` WHERE `description` = ?', [sensor]);
+
       } catch (error: any) {
         console.log(error)
         throw new Error(error)

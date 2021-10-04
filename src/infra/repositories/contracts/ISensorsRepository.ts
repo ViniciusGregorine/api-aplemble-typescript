@@ -4,10 +4,9 @@ export interface ISensorsRepository{
     findByDescription(type: string): Promise<Sensor>
     save(sensor: Sensor): Promise<void>
     getAllSensor(): Promise<Sensor[]>  // change to getSensor
-    deleteSensor(id: number): Promise<void>
+    deleteSensor(sensor: number | string): Promise<void>
 }
 
 /*
-deleteSensor(): Promise<void>
 ListSensorById(): Promise<sensor>
 */
