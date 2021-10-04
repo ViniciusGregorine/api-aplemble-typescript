@@ -14,9 +14,13 @@ export class DeleteSensorController {
         // const { description, device, id_situation, id_gap } = req.body
         // console.log(req.body)
 
-        const useDescription: IDeleteSensorDTO = req.query.id
+        const sensorToDelete: IDeleteSensorDTO = {
+            id: req.query.id,
+            description: req.query.description 
+        }
+
         try {
-            await this.deleteSensroUseCase.execute(useDescription)
+            await this.deleteSensroUseCase.execute(sensorToDelete)
             return ok('deleted')
             
              } catch (error: any) {
