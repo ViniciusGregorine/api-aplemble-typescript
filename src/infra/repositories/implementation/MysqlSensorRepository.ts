@@ -2,15 +2,13 @@ import { pool } from '@/infra/repositories/implementation/poolConnection'
 import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
 import { Sensor } from '@/domain/entities/Sensor'
 import { ISensor } from '@/domain/entities/ISensor'
+import { ErrorREST } from '@/domain/errors/errorRest';
 
-//import {createConnection, QueryError, RowDataPacket} from 'mysql2';
 
 export class MysqlSensorRepository implements ISensorsRepository{
     async save(sensor: Sensor): Promise<any> {
       try {
         await pool.query(`INSERT INTO sensors SET ?`, sensor);
-        // console.log('data inserted: ', sensor)
-        // console.log('alosw')
     
       } catch (error) {
           console.log(error)
@@ -30,7 +28,7 @@ export class MysqlSensorRepository implements ISensorsRepository{
         
       } catch (error: any) {
         console.log('faild to insert data:', error)
-        throw new error
+        throw new ErrorREST(error)
       }
     }
     
@@ -43,6 +41,16 @@ export class MysqlSensorRepository implements ISensorsRepository{
   
       } catch (error) {
         console.log('faild to insert data: ', error)
+      }
+    }
+  
+    async deleteSensor(sensor: number | string): Promise<void> {
+      try {
+        await pool.query('DELETE FROM `sensors` WHERE `description` = ?', [sensor]);
+
+      } catch (error: any) {
+        console.log(error)
+        throw new Error(error)
       }
     }
 }

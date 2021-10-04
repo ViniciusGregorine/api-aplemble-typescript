@@ -8,7 +8,7 @@ export class ErrorREST extends Error {
  }
 
  // helpers | errors
- export const error = ({
+ export const errorHelper = ({
      badRequest: {
          status: 400,
          message: "something wrong with your request"
@@ -16,5 +16,14 @@ export class ErrorREST extends Error {
      LoginbadRequest: {
         status: 403,
         message:"auth faild"
+    },
+    missingParam: (param: string) => ({
+        status: 422,
+        message: `missing param: ${param}`
+    }),
+
+    notFound: {
+        status: 404,
+        message: 'item not found'
     }
  })
