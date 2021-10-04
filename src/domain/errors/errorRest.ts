@@ -20,5 +20,10 @@ export class ErrorREST extends Error {
     missingParam: (param: string) => ({
         status: 422,
         message: `missing param: ${param}`
-    })
+    }),
+
+    notFound: {
+        status: 404,
+        message: 'item not found'
+    }
  })
