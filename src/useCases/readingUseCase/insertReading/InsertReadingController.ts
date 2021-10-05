@@ -26,7 +26,7 @@ export class InsertReadingController {
             await this.insertReadingUseCase.execute(readingQuery)
             return ok('sucessifuly insert reading')
 
-        } catch (error) {
+        } catch (error: any) {
             return errorHandle(error)
         }
     }
