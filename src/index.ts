@@ -4,11 +4,10 @@ import rootRoute from './routes/rootRoute'
 import placeRoute from './routes/placeRoute'
 import instituionsRouter from './routes/institutionsRoute'
 
-
 import cors from 'cors'
 import express from 'express'
 
-const port = 3001
+export const port = 3456
 
 const app = express()
 
