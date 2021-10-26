@@ -1,7 +1,7 @@
 -- version without institutions
 
-create database if not exists masa_building3;
-use masa_building3;
+create database if not exists masa_building2;
+use masa_building2;
 
 create table if not exists readings (
 	id int not null  auto_increment unique,
@@ -49,7 +49,7 @@ create table  if not exists places (
     lim_temperature decimal(5, 2),
     id_dimension tinyint not null,
     id_material tinyint not null,
-    id_institution tinyint default 1 not null, 
+    id_user tinyint default 1 not null, 
     
     primary key (id)
 );
@@ -67,7 +67,7 @@ create table if not exists dimensions (
 );
 
 
-create table if not exists admins (
+create table if not exists users (
     id tinyint not null primary key auto_increment unique, 
     email varchar(60) not null unique,
     password varchar(60) not null
@@ -89,4 +89,6 @@ ALTER TABLE places
 ADD CONSTRAINT fk_dimension
 FOREIGN KEY (id_dimension) REFERENCES dimensions(id),
 ADD CONSTRAINT fk_material
-FOREIGN KEY (id_material) REFERENCES materials(id)
+FOREIGN KEY (id_material) REFERENCES materials(id),
+ADD CONSTRAINT fk_user 
+FOREIGN  KEY (id_user) REFERENCES users(id)
