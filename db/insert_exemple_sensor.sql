@@ -16,9 +16,8 @@ INSERT INTO `situations`(`description`) VALUES ('ligado');
 
 INSERT INTO `sensors` (`id`, `description`, `installation_date`, `device`, `id_situation`, `id_gap`) VALUES (NULL, 'DHT14', '2021-03-06', '0', '1', '1');
 
-INSERT INTO `addresses` (`id`, `street`, `number`, `neighborhood`, `complement`, `city`) VALUES (NULL, 'avenida getulio vargas', '1514', 'são migel', 'predio preto', 'Sombrio');
 
-INSERT INTO `institutions` (`id`, `name`, `email`, `password`, `id_address`) VALUES (NULL, 'IFC', 'ifc@gmail.com', '1234', '1');
+INSERT INTO `users` (`id`, `email`, `password`) VALUES (NULL,'ifc@gmail.com', '1234');
 
 INSERT INTO `materials` (`id`, `description`) VALUES (NULL, 'madeira'), (NULL, 'isopor');
 

@@ -1,16 +1,28 @@
--- version without institutions
+-- version with new table: `type_readings` 
 
-create database if not exists masa_building2;
-use masa_building2;
+create database if not exists masa_building3;
+use masa_building3;
 
 create table if not exists readings (
 	id int not null  auto_increment unique,
     date date not null default(now()),
     hour time not null default now(),
-    value_humidity decimal(5, 2) not null,
-    value_temperature decimal(5, 2) not null,
+
+    value decimal(6, 3) not null,
+    
+    id_type_reading int not null,
     id_place tinyint not null,
     id_sensor tinyint,
+    
+    primary key(id)
+);
+
+create table if not exists type_readings (
+	id int not null auto_increment unique,
+    description varchar(50) not null unique,
+    min_value decimal(5, 2),
+    max_value decimal(5, 2),
+    prefix varchar(10),
     
     primary key(id)
 );
@@ -83,7 +95,10 @@ ALTER TABLE readings
 ADD CONSTRAINT fk_place
 FOREIGN KEY (id_place) REFERENCES places(id),
 ADD CONSTRAINT fk_sensor
-FOREIGN KEY (id_sensor) REFERENCES	 sensors(id) ON DELETE SET NULL;
+FOREIGN KEY (id_sensor) REFERENCES	sensors(id) ON DELETE SET NULL,
+
+ADD CONSTRAINT fk_type_reading 
+FOREIGN KEy (id_type_reading) REFERENCES type_readings(id);
 
 ALTER TABLE places
 ADD CONSTRAINT fk_dimension
