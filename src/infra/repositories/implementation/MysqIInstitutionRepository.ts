@@ -6,7 +6,7 @@ import { ErrorREST } from '@/domain/errors/errorRest';
 export class MysqlInstitutionRepository implements IInstitutionRepository{
     async save(institution: IInstitution): Promise<any> {
       try {
-        await pool.query(`INSERT INTO admins SET ?`, institution);
+        await pool.query(`INSERT INTO users SET ?`, institution);
 
       } catch (error) {
           console.log(error)
@@ -19,7 +19,7 @@ export class MysqlInstitutionRepository implements IInstitutionRepository{
       try {
 
         const [rows] =  await pool.query<IInstitution[]>(
-          "SELECT email FROM admins", []);   
+          "SELECT email FROM users", []);   
 
         const row = rows.find(Element => Element.email === description)
         console.log(row)
@@ -36,7 +36,7 @@ export class MysqlInstitutionRepository implements IInstitutionRepository{
       try {
 
         const [rows] =  await pool.query<IInstitution[]>(
-          "SELECT * FROM admins", []);  
+          "SELECT * FROM users", []);  
     
       return rows
 
