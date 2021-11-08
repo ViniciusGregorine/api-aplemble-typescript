@@ -6,7 +6,7 @@ export interface IReading extends RowDataPacket{
     date: string
     hour: number
     value: number
-    id_type_reading: number
-    id_place: number
+    type_reading: string
+    // id_place: number
     id_sensor: number  
 }

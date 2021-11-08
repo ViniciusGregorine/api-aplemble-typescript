@@ -16,10 +16,10 @@ export class MysqlReadingRepository implements IReadingRepository{
     }
   }
 
-  async GetReadingByPlaceId(id: string): Promise<any>{
+  async GetReadingByPlaceId(id: number): Promise<any>{
     try{
-      const [rows] = await pool.query<IReading[]>(
-        `SELECT * FROM readings WHERE id_place='${id}'`, []
+      const [rows] = await pool.query<any>(
+        `SELECT readings.id, readings.value, readings.date, readings.hour,  type_readings.description as type_reading, type_readings.prefix, readings.id_sensor FROM readings INNER JOIN type_readings ON readings.id_type_reading = type_readings.id WHERE readings.id_place= ${id} ORDER BY type_readings.description ASC`
       )
 
       if(rows.length === 0) return [{massege: "no data"}]
