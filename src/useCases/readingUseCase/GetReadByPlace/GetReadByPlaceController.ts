@@ -20,7 +20,7 @@ export class GetReadByPlaceController implements IController{
             const parseReading = data.map(
             entity => ({
                 ...entity,
-                date: formatDate(new Date(entity.date))
+                // date: formatDate(new Date(entity.date))
 
             })
             )
