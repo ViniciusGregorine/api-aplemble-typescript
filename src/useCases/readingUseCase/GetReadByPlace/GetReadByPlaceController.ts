@@ -6,27 +6,12 @@ export class GetReadByPlaceController implements IController{
         private getReadByPlaceUseCase: GetReadByPlaceUseCase
     ){ }
 
-    async handle(req: HttpRequest): Promise<HttpResponse>{
-        // gambiarra exclua isso depois pelo amor de deus 
-        function formatDate(date: Date){
-            const dateFormat: String = ((date.getDate() )) + "/" + ((date.getMonth() + 1)) + "/" + date.getFullYear()
-            return dateFormat
-        }
-        
+    async handle(req: HttpRequest): Promise<HttpResponse>{      
         try {
             const id = req.params.place_id
             const data = await this.getReadByPlaceUseCase.GetReadByPlceId(id)
-
-            const parseReading = data.map(
-            entity => ({
-                ...entity,
-                date: formatDate(new Date(entity.date))
-
-            })
-            )
-
-            return ok(parseReading)
-
+            
+            return ok(data)
         } catch(error: any) {
             return errorHandle(error)
        }

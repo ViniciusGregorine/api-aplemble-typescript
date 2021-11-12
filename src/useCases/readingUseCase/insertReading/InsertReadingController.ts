@@ -10,16 +10,17 @@ export class InsertReadingController {
     async handle(req: HttpRequest): Promise<HttpResponse>{
         if (!req.body) return errorHandle({message: 'content cannot be ampty', status: 400})
 
-         const requiredParans = ['humi', 'temp', 'place', 'sensor']
-        for(const param of requiredParans){
-            if(!req.query[param]) return errorHandle({message: `missing param: '${param}' `, status: 400})
-            }
+        //  const requiredParans = ['humi', 'temp', 'place', 'sensor']
+        // for(const param of requiredParans){
+        //     if(!req.query[param]) return errorHandle({message: `missing param: '${param}' `, status: 400})
+        //     }
 
         const readingQuery: IReadingDTO = {
-            value_temperature: req.query.temp,
-            value_humidity: req.query.humi,
-            id_place: req.query.place,
-            id_sensor: req.query.sensor
+            ...req.body
+            // value_temperature: req.body.value_temperature,
+            // value_humidity: req.body.value_humidity,
+            // id_place: req.body.place,
+            // id_sensor: req.body.sensor
         }
 
         try {

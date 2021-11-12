@@ -5,8 +5,8 @@ export interface IReading extends RowDataPacket{
 
     date: string
     hour: number
-    value_humidity: number
-    value_temperature: number
-    id_place: number
+    value: number
+    type_reading: string
+    // id_place: number
     id_sensor: number  
 }

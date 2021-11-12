@@ -3,8 +3,8 @@ export interface IReadingDTO {
 
     date?: string
     hour?: number
-    value_humidity?: number
-    value_temperature?: number
+    value?: number
     id_place: number
     id_sensor: number
+    id_type_reading: number
 }
