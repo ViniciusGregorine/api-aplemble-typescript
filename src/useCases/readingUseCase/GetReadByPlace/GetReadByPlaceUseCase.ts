@@ -1,5 +1,10 @@
 import { IReadingRepository } from '@/infra/repositories/contracts/IReadingRepository'
 
+interface FillReadings { 
+    type_reading: string
+    prefix: string
+    values: any[]           
+}
 export class GetReadByPlaceUseCase{
     constructor (
         private readingRepository : IReadingRepository
@@ -46,10 +51,4 @@ export class GetReadByPlaceUseCase{
         })
         return filteredReadings
     }
-}
-
-interface FillReadings { 
-    type_reading: string
-    prefix: string
-    values: any[]           
 }
