@@ -3,14 +3,19 @@ import { RowDataPacket } from "mysql2";
 export interface IPlace extends RowDataPacket{
     id?: number
 
+    description: string
+    note?: string
+
     sensor_temp: boolean 
     sensor_humi: boolean
-    description: string
-
-    note?: string
     lim_demperature?: number
 
-    id_dimension: number
-    id_material: number
-    id_institution: number
+    material: string
+    height: number
+    width: number
+    length: number
+
+    id_dimension?: number
+    id_material?: number
+    id_user?: number
 }
