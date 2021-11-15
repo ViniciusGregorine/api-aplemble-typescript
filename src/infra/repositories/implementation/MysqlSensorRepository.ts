@@ -36,7 +36,16 @@ export class MysqlSensorRepository implements ISensorsRepository{
   
       try {
         const [rows] =  await pool.query<ISensor[]>(
-          "SELECT * FROM sensors", []);        
+          `SELECT  
+            sensors.id, 
+            sensors.description, 
+            sensors.installation_date, 
+            sensors.device, 
+            situations.description AS situation, 
+            gaps.description AS second_gap 
+        FROM sensors 
+        INNER JOIN situations ON sensors.id_situation = situations.id 
+        INNER JOIN gaps ON id_gap = gaps.id;`, []);        
       return rows 
   
       } catch (error) {
