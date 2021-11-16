@@ -10,7 +10,7 @@ const sensorRoutes = Router()
 
 sensorRoutes.post('/sensor', authMiddleware, adaptRoute(createSensorController))
 
-sensorRoutes.get('/sensor', authMiddleware, adaptRoute(listSensorController))
+sensorRoutes.get('/sensor', /*authMiddleware,*/ adaptRoute(listSensorController))
 
 sensorRoutes.delete('/sensor', authMiddleware, adaptRoute(deleteSensorController))
 
