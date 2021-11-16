@@ -1,5 +1,5 @@
 import {pool} from '@/infra/repositories/implementation/poolConnection'
-import { IReading } from '@/domain/entities/IReading'
+import { IReading, ITypeReading } from '@/domain/entities/IReading'
 import { IReadingRepository } from '../contracts/IReadingRepository'
 
 
@@ -34,12 +34,21 @@ export class MysqlReadingRepository implements IReadingRepository{
   }
 
   async save(reading: any): Promise<any> {
-      try {
-        await pool.query(`INSERT INTO readings SET ?`, reading);
-    
-      } catch (error: any) {
-          console.log(error)
-          throw new Error(error.sqlMessage) 
-      }
+    try {
+      await pool.query(`INSERT INTO readings SET ?`, reading);
+  
+    } catch (error: any) {
+        console.log(error)
+        throw new Error(error.sqlMessage) 
     }
+  }
+  async GetTypeReading(): Promise<ITypeReading[]>{
+    try {
+      const [rows] = await pool.query<ITypeReading[]>('SELECT * FROM type_readings;')
+
+      return rows;
+    } catch (err: any) {
+      throw new Error(err.sqlMessage)
+    }
+  }
 }
