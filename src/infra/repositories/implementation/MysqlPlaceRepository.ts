@@ -1,6 +1,7 @@
 import {pool} from '@/infra/repositories/implementation/poolConnection'
 import { IPlace } from '@/domain/entities/IPlace'
 import {IPlaceRepository} from '@/infra/repositories/contracts/IPlaceRepository'
+import { foreignKeyManager } from '../helpers/foreignKeyManager'
 
 export class MysqlPlaceRepository implements IPlaceRepository{
   async getAllPlace(): Promise<any>{
@@ -28,13 +29,22 @@ export class MysqlPlaceRepository implements IPlaceRepository{
   }
   async save(place: IPlace): Promise<void>{
         try {
-          let materials = await pool.query<any>(`SELECT materials.id FROM materials WHERE materials.description = '${place.material}'`)
-          let material = materials[0][0]
 
-          if(!material) {
-            await pool.query<any>(`INSERT INTO materials (description) VALUES ("${place.material}")`)
-            this.save(place)
-          }
+          const materialId = await foreignKeyManager({
+            targetTable: 'materials',
+            tableColumns: {
+             description: place.material
+            }
+          })
+
+          const dimensionId = await foreignKeyManager({
+            targetTable: 'dimensions',
+            tableColumns: {
+              height: place.height,
+              length: place.length,
+              width: place.width
+            }
+          })
 
           const entite = {
             description: place.description,
@@ -43,10 +53,9 @@ export class MysqlPlaceRepository implements IPlaceRepository{
             sensor_temp: place.sensor_temp || 0,
             sensor_humi: place.sensor_humi || 0,
             lim_temperature: place.lim_demperature,
-            
-            id_material: material.id,
-            id_dimension: place.id_dimension,
 
+            id_material: materialId,
+            id_dimension: dimensionId,
             id_user: 1
           }
 
