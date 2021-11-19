@@ -4,6 +4,7 @@ import {IPlaceRepository} from '@/infra/repositories/contracts/IPlaceRepository'
 import { foreignKeyManager } from '../helpers/foreignKeyManager'
 import { functionFindByDescription } from '../helpers/findByDescription';
 import { Place } from '@/domain/entities/Place';
+import { deleteFunction } from '../helpers/deleteRow';
 
 export class MysqlPlaceRepository implements IPlaceRepository{
   async getAllPlace(): Promise<any>{
@@ -74,5 +75,7 @@ export class MysqlPlaceRepository implements IPlaceRepository{
             throw new Error(error)
         }
       }
-  
+    async delete(description: string){
+      deleteFunction('places', description)
+    }
 }
