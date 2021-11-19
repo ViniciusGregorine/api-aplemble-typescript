@@ -22,6 +22,11 @@ export class ErrorREST extends Error {
         message: `missing param: ${param}`
     }),
 
+    duplicate: (param: string) => ({
+        status: 409,
+        message: `duplicate: ${param}`
+    }),
+
     notFound: {
         status: 404,
         message: 'item not found'
