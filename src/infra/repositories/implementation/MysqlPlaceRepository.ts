@@ -2,6 +2,8 @@ import {pool} from '@/infra/repositories/implementation/poolConnection'
 import { IPlace } from '@/domain/entities/IPlace'
 import {IPlaceRepository} from '@/infra/repositories/contracts/IPlaceRepository'
 import { foreignKeyManager } from '../helpers/foreignKeyManager'
+import { functionFindByDescription } from '../helpers/findByDescription';
+import { Place } from '@/domain/entities/Place';
 
 export class MysqlPlaceRepository implements IPlaceRepository{
   async getAllPlace(): Promise<any>{
@@ -27,7 +29,13 @@ export class MysqlPlaceRepository implements IPlaceRepository{
       
     }
   }
-  async save(place: IPlace): Promise<void>{
+
+
+  async findByDescription(description: string): Promise<string>{
+    return await functionFindByDescription('places', description)
+  }
+
+  async save(place: Place): Promise<void>{
         try {
 
           const materialId = await foreignKeyManager({
@@ -52,7 +60,7 @@ export class MysqlPlaceRepository implements IPlaceRepository{
 
             sensor_temp: place.sensor_temp || 0,
             sensor_humi: place.sensor_humi || 0,
-            lim_temperature: place.lim_demperature,
+            lim_temperature: place.lim_temperature,
 
             id_material: materialId,
             id_dimension: dimensionId,
@@ -61,9 +69,9 @@ export class MysqlPlaceRepository implements IPlaceRepository{
 
          await pool.query(`INSERT INTO places SET ?`, entite)
   
-        } catch (error) {
+        } catch (error: any) {
             console.log(error)
-            throw new Error 
+            throw new Error(error)
         }
       }
   
