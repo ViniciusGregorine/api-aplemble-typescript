@@ -26,6 +26,11 @@ export class ErrorREST extends Error {
         status: 409,
         message: `duplicate: ${param}`
     }),
+    
+    customBadRequest: (param: string) => ({
+        status: 400,
+        message: `bad request: ${param}`
+    }),
 
     notFound: {
         status: 404,
