@@ -29,7 +29,7 @@ export class ErrorREST extends Error {
     
     customBadRequest: (param: string) => ({
         status: 400,
-        message: `bad request: ${param}`
+        message: `${param}`
     }),
 
     notFound: {

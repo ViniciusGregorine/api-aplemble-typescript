@@ -1,12 +1,12 @@
  export class Sensor {
-    public id!: string
+    public id?: string
 
     public description!: string
     public device!: number
-    public situation!: string
-    public gap!: string
+    public id_situation!: number
+    public id_gap!: number
 
-    constructor(props: Omit<Sensor, 'id'>, id?: string){
+    constructor(props: Sensor){
         Object.assign(this, props)
     }
 }

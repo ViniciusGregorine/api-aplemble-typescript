@@ -3,6 +3,7 @@ import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepos
 import { Sensor } from '@/domain/entities/Sensor'
 import { ISensor } from '@/domain/entities/ISensor'
 import { ErrorREST } from '@/domain/errors/errorRest';
+import { functionFindByDescription } from '../helpers/findByDescription';
 
 
 export class MysqlSensorRepository implements ISensorsRepository{
@@ -17,17 +18,11 @@ export class MysqlSensorRepository implements ISensorsRepository{
     }
 
     async findByDescription(description: string): Promise<any> {
-     
       try {
-        const [rows] =  await pool.query<ISensor[]>(
-          "SELECT description FROM sensors", []);   
-
-        const row = rows.find(Element => Element.description === description)
-        
-        return row
+        return await functionFindByDescription('sensors', description)
         
       } catch (error: any) {
-        console.log('faild to insert data:', error)
+        console.log(error)
         throw new ErrorREST(error)
       }
     }
