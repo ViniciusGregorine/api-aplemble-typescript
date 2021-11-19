@@ -4,12 +4,33 @@ import { Sensor } from '@/domain/entities/Sensor'
 import { ISensor } from '@/domain/entities/ISensor'
 import { ErrorREST } from '@/domain/errors/errorRest';
 import { functionFindByDescription } from '../helpers/findByDescription';
+import { foreignKeyManager } from '../helpers/foreignKeyManager';
 
 
 export class MysqlSensorRepository implements ISensorsRepository{
     async save(sensor: Sensor): Promise<any> {
       try {
-        await pool.query(`INSERT INTO sensors SET ?`, sensor);
+        const gapId = await foreignKeyManager({
+          targetTable: 'gaps',
+          tableColumns: {
+            description: sensor.gap
+          }
+        })
+
+        const situationId = await foreignKeyManager({
+          targetTable: 'situations',
+          tableColumns: {
+            description: sensor.situation
+          }
+        })
+
+        const entite = {
+          description: sensor.description,
+          device: sensor.device,
+          id_gap: gapId,
+          id_situation: situationId
+        }
+        await pool.query(`INSERT INTO sensors SET ?`, entite);
     
       } catch (error) {
           console.log(error)
