@@ -1,6 +1,5 @@
 import { errorHandle, HttpRequest, HttpResponse, ok } from '@/routeAdapter/HttpHandle'
 import {ListSensorUseCase} from '@/useCases/sensorUseCases/ListSensor/ListSensorUseCase'
-import { Request, Response} from 'express'
 
 export class ListSensorController {
     constructor(
