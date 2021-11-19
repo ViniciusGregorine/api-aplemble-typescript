@@ -1,7 +1,7 @@
 import { Sensor } from '@/domain/entities/Sensor'
 import { errorHelper, ErrorREST } from '@/domain/errors/errorRest'
 import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
-import { ICreateSensorDTO } from '@/useCases/sensorUseCases/CreateSensor/ICreateSensorDTO'
+
 
 export class CreateSensorUseCase{
     constructor(
