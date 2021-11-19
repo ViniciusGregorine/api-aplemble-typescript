@@ -1,4 +1,5 @@
 import { Sensor } from '@/domain/entities/Sensor'
+import { errorHelper, ErrorREST } from '@/domain/errors/errorRest'
 import { ISensorsRepository } from '@/infra/repositories/contracts/ISensorsRepository'
 import { ICreateSensorDTO } from '@/useCases/sensorUseCases/CreateSensor/ICreateSensorDTO'
 
@@ -10,7 +11,7 @@ export class CreateSensorUseCase{
     async execute(data: ICreateSensorDTO){
         const sensorAlreadyExist = await this.sensorsRepository.findByDescription(data.description)
 
-        if(sensorAlreadyExist)  throw new Error
+        if(sensorAlreadyExist)  throw new ErrorREST(errorHelper.duplicate('description'))
 
         const sensor = new Sensor(data)
         await this.sensorsRepository.save(sensor)
