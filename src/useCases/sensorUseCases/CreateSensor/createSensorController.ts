@@ -9,12 +9,13 @@ export class CreateSensorController {
 
     async handle(req: HttpRequest): Promise<HttpResponse>{
         if (!req.body) errorHandle({message: 'content cannot be ampty', status: 400})
-        
-        const { description, device, id_situation, id_gap } = req.body
+
+
+        const { description, device, situation, gap, installation_date} = req.body
   
         try {
             await this.createSensorUseCase.execute({
-                 description, device, id_situation, id_gap
+                 description, device, situation, gap
             })
             return ok('sucessifuly sensor created')
 
