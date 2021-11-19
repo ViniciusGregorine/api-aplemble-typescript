@@ -8,7 +8,7 @@ export class DeletePlaceUseCase{
 
     async execute(description: string){
         const placeAlreadyExist = await this.placesRepository.findByDescription(description)
-        if(!placeAlreadyExist) throw new ErrorREST(errorHelper.customBadRequest('place description does not exists'))
+        if(!placeAlreadyExist) throw new ErrorREST(errorHelper.notFound)
 
         try {
             await this.placesRepository.delete(description)

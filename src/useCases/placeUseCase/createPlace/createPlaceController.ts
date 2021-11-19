@@ -11,7 +11,8 @@ export class CreatePlaceController {
     async handle(req: HttpRequest): Promise<HttpResponse>{
         if (!req.body) errorHandle({message: 'content cannot be ampty', status: 400})
         
-         requiredParams(['description', 'material', 'height', 'length', 'width'], req) 
+        const error = requiredParams(['description', 'material', 'height','width'], req) 
+        if(error) return errorHandle(error.response)
 
         const place = req.body
   
