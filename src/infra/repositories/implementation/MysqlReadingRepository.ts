@@ -1,6 +1,7 @@
 import {pool} from '@/infra/repositories/implementation/poolConnection'
 import { IReading, ITypeReading } from '@/domain/entities/IReading'
 import { IReadingRepository } from '../contracts/IReadingRepository'
+import { functionFindByDescription } from '../helpers/findByDescription';
 
 
 
@@ -51,4 +52,26 @@ export class MysqlReadingRepository implements IReadingRepository{
       throw new Error(err.sqlMessage)
     }
   }
+
+  async findTypeReadingByDescription(description: string): Promise<any> {
+    try {
+      return await functionFindByDescription('type_readings', description)
+      
+    } catch (error: any) {
+      console.log(error)
+      throw new Error(error.sqlMessage)
+    }
+  }
+  async deleteTypeReading(typeReading: string): Promise<void> {
+    try {
+      await pool.query('DELETE FROM `type_readings` WHERE `description` = ?', [typeReading]);
+
+    } catch (error: any) {
+      console.log(error)
+      throw new Error(error.sqlMessage)
+    }
+  }
 }
+
+
+
