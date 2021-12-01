@@ -4,7 +4,7 @@ import { requiredParams } from '@/utils/requireParams'
 
 export class DeleteTypeReadingController {
     constructor(
-        private deleteSensroUseCase: any
+        private deleteTypeReadingUseCase: any
     ){}
 
     async handle(req: HttpRequest): Promise<HttpResponse>{
@@ -12,7 +12,7 @@ export class DeleteTypeReadingController {
         if(error) return errorHandle(error.response)
 
         try {
-            await this.deleteSensroUseCase.execute({description: req.body.description})
+            await this.deleteTypeReadingUseCase.execute({description: req.query.description})
             return ok('deleted')
             
         } catch (error: any) {
