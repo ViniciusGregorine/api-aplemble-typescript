@@ -1,4 +1,5 @@
 import {IReading, ITypeReading} from '@/domain/entities/IReading'
+import { TypeReading } from '@/domain/entities/typeReading';
 
 export interface IReadingRepository{
     getAllReading(): Promise<IReading[]>
@@ -8,7 +9,5 @@ export interface IReadingRepository{
     GetTypeReading(): Promise<ITypeReading[]> 
     findTypeReadingByDescription(description: string): Promise<any>
     deleteTypeReading(description: string): Promise<void>
-    // addTypeReading(typeReading: object): Promise<void>
-
-    // getReadingByReadingType(type: string): Promise<IReading[]>
+    saveTypeReading(typeReading: TypeReading): Promise<void>
 }

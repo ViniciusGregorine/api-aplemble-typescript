@@ -4,7 +4,6 @@ import { IReadingRepository } from '../contracts/IReadingRepository'
 import { functionFindByDescription } from '../helpers/findByDescription';
 
 
-
 export class MysqlReadingRepository implements IReadingRepository{
   async getAllReading(): Promise<any>{
     try{
@@ -71,7 +70,13 @@ export class MysqlReadingRepository implements IReadingRepository{
       throw new Error(error.sqlMessage)
     }
   }
+  async saveTypeReading(typeReading: ITypeReading): Promise<any> {
+    try {
+      await pool.query(`INSERT INTO type_readings SET ?`, typeReading)
+
+    } catch (error: any) {
+        console.log(error)
+        throw new Error(error.sqlMessage)   
+    }
+  }
 }
-
-
-
