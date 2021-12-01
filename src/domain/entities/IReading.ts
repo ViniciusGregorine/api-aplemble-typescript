@@ -12,10 +12,10 @@ export interface IReading extends RowDataPacket{
 }
 
 export interface ITypeReading extends RowDataPacket{
-    id: number
+    id?: number
 
     description: string
-    min_value: number
-    max_value: number 
+    min_value?: number
+    max_value?: number 
     prefix: string 
 }
