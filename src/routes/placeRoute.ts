@@ -4,15 +4,15 @@ import { listPlaceController } from '@/useCases/placeUseCase/listPlaces'
 import { adaptRoute } from '../routeAdapter/adapterRoute'
 
 import { Router } from 'express'
+import { authMiddleware } from '@/validation/authMiddleware'
 
 const placeRoute = Router()
 
 
 placeRoute.get('/place', adaptRoute(listPlaceController))
 
+placeRoute.post('/place', authMiddleware, adaptRoute(createPlaceController))
 
-placeRoute.post('/place', adaptRoute(createPlaceController))
-
-placeRoute.delete('/place', adaptRoute(deletePlaceController))
+placeRoute.delete('/place', authMiddleware,adaptRoute(deletePlaceController))
 
 export default placeRoute

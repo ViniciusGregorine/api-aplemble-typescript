@@ -8,10 +8,11 @@ import { deleteSensorController } from '@/useCases/sensorUseCases/DeleteSensor'
 const sensorRoutes = Router()
 
 
-sensorRoutes.post('/sensor', /*authMiddleware,*/ adaptRoute(createSensorController))
 
-sensorRoutes.get('/sensor', /*authMiddleware,*/ adaptRoute(listSensorController))
+sensorRoutes.get('/sensor', adaptRoute(listSensorController))
 
-sensorRoutes.delete('/sensor',/* authMiddleware,*/ adaptRoute(deleteSensorController))
+sensorRoutes.post('/sensor', authMiddleware, adaptRoute(createSensorController))
+
+sensorRoutes.delete('/sensor', authMiddleware, adaptRoute(deleteSensorController))
 
 export default sensorRoutes
