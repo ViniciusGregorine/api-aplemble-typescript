@@ -54,11 +54,13 @@ create table if not exists situations (
 
 create table  if not exists places (
 	id tinyint not null auto_increment unique,
-    sensor_temp bool not null default true ,
-    sensor_humi bool not null default true,
     description  varchar(40) not null unique,
     note varchar(200),
-    lim_temperature decimal(5, 2),
+
+    -- sensor_temp bool not null default true ,
+    -- sensor_humi bool not null default true,
+    -- lim_temperature decimal(5, 2),
+
     id_dimension tinyint not null,
     id_material tinyint not null,
     id_user tinyint default 1 not null, 
