@@ -6,6 +6,8 @@ export interface IReadingRepository{
     save(reading: any): Promise<void>
 
     GetTypeReading(): Promise<ITypeReading[]> 
+    findTypeReadingByDescription(description: string): Promise<any>
+    deleteTypeReading(description: string): Promise<void>
     // addTypeReading(typeReading: object): Promise<void>
 
     // getReadingByReadingType(type: string): Promise<IReading[]>
