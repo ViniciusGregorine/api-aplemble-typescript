@@ -7,7 +7,6 @@ export interface HttpRequest<T = any> {
     params?: T
     query?: T
     header?: T
-    query?: T
 }
 
 export interface HttpResponse<T = any> {
