@@ -1,1 +1,86 @@
-{}
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de manipulação de leituras de ambiente",
+        "description": "Tem como objetivo manipular sensores ambientes e leituras de ambentes a partir de sensores em arduinos",
+        "contact": {
+            "email": "ifc@gmail.edu.br"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3456",
+            "description": "API de testes"
+        }
+    ],
+    "paths": {
+        "/sensor": {
+            "post": {
+                "summary": "Cadastro de sensores",
+                "description": "responsavel por cadastrar sensores",
+                "tags": ["sensors"],
+                "parameters": [
+                    {
+                        "name": "teste",
+                        "in": "query",
+                        "description": "adfas",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Sensor"
+                            },
+                            "examples": {
+                                "sensor": {
+                                    "value": {
+                                        "description": "DHT22",
+                                        "gap": 200,
+                                        "situation": "funcional",
+                                        "device": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Duplicate field"
+                    },
+                    "200": {
+                        "description": "Ok"
+                    }
+
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Sensor": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "gap": {
+                        "type": "number"
+                    },
+                    "situation": {
+                        "type": "string"
+                    },
+                    "device": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        }
+    }
+}
