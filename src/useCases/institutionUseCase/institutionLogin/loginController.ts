@@ -1,4 +1,4 @@
-import {errorHandle, HttpRequest, HttpResponse, IController, ok } from "@/routeAdapter/HttpHandle";
+import {errorHandle, HttpRequest, HttpResponse, IController, ok } from "@/routes/routeAdapter/HttpHandle";
 import { LoginUseCase } from "./loginUseCase";
 
 export class LoginController implements IController{ 

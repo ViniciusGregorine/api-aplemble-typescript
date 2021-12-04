@@ -1,7 +1,7 @@
 import { createPlaceController } from '@/useCases/placeUseCase/createPlace'
 import { deletePlaceController } from '@/useCases/placeUseCase/deletePlace'
 import { listPlaceController } from '@/useCases/placeUseCase/listPlaces'
-import { adaptRoute } from '../routeAdapter/adapterRoute'
+import { adaptRoute } from './routeAdapter/adapterRoute'
 
 import { Router } from 'express'
 import { authMiddleware } from '@/validation/authMiddleware'

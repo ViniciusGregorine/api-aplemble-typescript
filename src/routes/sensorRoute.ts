@@ -1,7 +1,7 @@
 import  {Router,} from 'express'
 import { createSensorController } from '@/useCases/sensorUseCases/CreateSensor'
 import { listSensorController } from '@/useCases/sensorUseCases/ListSensor'
-import { adaptRoute } from '../routeAdapter/adapterRoute'
+import { adaptRoute } from './routeAdapter/adapterRoute'
 import { authMiddleware } from '@/validation/authMiddleware'
 import { deleteSensorController } from '@/useCases/sensorUseCases/DeleteSensor'
 

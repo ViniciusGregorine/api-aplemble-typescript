@@ -1,4 +1,4 @@
-import { HttpResponse, IController, HttpRequest, ok, errorHandle } from '@/routeAdapter/HttpHandle'
+import { HttpResponse, IController, HttpRequest, ok, errorHandle } from '@/routes/routeAdapter/HttpHandle'
 import { ListReadingUseCase } from './ListreadingUseCase'
 
 export class ListReadingController implements IController{

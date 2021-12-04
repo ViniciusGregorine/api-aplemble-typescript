@@ -1,5 +1,5 @@
 import { errorHelper, ErrorREST } from '@/domain/errors/errorRest'
-import { HttpRequest } from '@/routeAdapter/HttpHandle'
+import { HttpRequest } from '@/routes/routeAdapter/HttpHandle'
 
 export function requiredParams(reqParans: string[], request: HttpRequest) {
     const totalRequest = {

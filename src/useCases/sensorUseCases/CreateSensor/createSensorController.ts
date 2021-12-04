@@ -1,4 +1,4 @@
-import {ok, errorHandle, HttpRequest, HttpResponse } from '@/routeAdapter/HttpHandle'
+import {ok, errorHandle, HttpRequest, HttpResponse } from '@/routes/routeAdapter/HttpHandle'
 import { CreateSensorUseCase } from '@/useCases/sensorUseCases/CreateSensor/CreateSensorUseCase'
 
 

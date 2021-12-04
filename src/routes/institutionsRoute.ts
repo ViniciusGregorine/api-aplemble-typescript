@@ -1,4 +1,4 @@
-import { adaptRoute } from "@/routeAdapter/adapterRoute";
+import { adaptRoute } from "@/routes/routeAdapter/adapterRoute";
 import { loginController } from "@/useCases/institutionUseCase/institutionLogin";
 import { Router } from "express";
 

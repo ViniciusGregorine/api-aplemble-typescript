@@ -1,4 +1,4 @@
-import { errorHandle, HttpRequest, HttpResponse, IController, ok } from '@/routeAdapter/HttpHandle'
+import { errorHandle, HttpRequest, HttpResponse, IController, ok } from '@/routes/routeAdapter/HttpHandle'
 import { GetReadByPlaceUseCase } from '@/useCases/readingUseCase/GetReadByPlace/GetReadByPlaceUseCase'
 
 export class GetReadByPlaceController implements IController{
