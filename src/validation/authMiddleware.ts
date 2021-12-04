@@ -2,7 +2,7 @@ import { NextFunction, Response, Request} from "express"
 import  jwt from "jsonwebtoken"
 
 export const authMiddleware = async(req: Request, res: Response, next: NextFunction) => { 
-    const token: any = req.headers['x-acess-token'] 
+    const token: any = req.headers['x-access-token'] 
     
     // melhorar isso aqui
     if(!token) return res.status(401).json({status: 401, message: "without token, without happyness"})

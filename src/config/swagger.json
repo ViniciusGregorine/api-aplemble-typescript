@@ -22,10 +22,7 @@
                 "tags": ["sensors"],
                 "parameters": [
                     {
-                        "name": "teste",
-                        "in": "query",
-                        "description": "adfas",
-                        "required": true
+                        "$ref": "#/components/parameters/AcessToken"
                     }
                 ],
                 "requestBody": {
@@ -62,7 +59,7 @@
             }
         }
     },
-    "components": {
+    "components": { 
         "schemas": {
             "Sensor": {
                 "type": "object",
@@ -80,6 +77,17 @@
                         "type": "boolean"
                     }
                 }
+            }
+        },
+        "parameters": {
+            "AcessToken": {
+              "name": "x-access-token",
+              "in": "header",
+              "description": "Access Token, must be login to get Access Token",
+              "required": true,
+              "schema": {
+                  "type": "string"
+              }
             }
         }
     }
