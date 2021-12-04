@@ -1,4 +1,5 @@
 import { errorHandle, HttpRequest, HttpResponse, ok} from "@/routeAdapter/HttpHandle"
+import { requiredParams } from "@/utils/requireParams"
 import { InsertReadingUseCase } from "./InsertReadingUseCase"
 import { IReadingDTO } from "./IReadingDTO"
 
@@ -10,17 +11,14 @@ export class InsertReadingController {
     async handle(req: HttpRequest): Promise<HttpResponse>{
         if (!req.body) return errorHandle({message: 'content cannot be ampty', status: 400})
 
-        //  const requiredParans = ['humi', 'temp', 'place', 'sensor']
-        // for(const param of requiredParans){
-        //     if(!req.query[param]) return errorHandle({message: `missing param: '${param}' `, status: 400})
-        //     }
+        const error = requiredParams(['value', 'id_place', 'id_sensor', 'id_type_reading'], req) 
+        if(error) return errorHandle(error.response)
 
         const readingQuery: IReadingDTO = {
-            ...req.body
-            // value_temperature: req.body.value_temperature,
-            // value_humidity: req.body.value_humidity,
-            // id_place: req.body.place,
-            // id_sensor: req.body.sensor
+            value: req.body.value,
+            id_place:  req.body.id_place,
+            id_sensor:  req.body.id_sensor,
+            id_type_reading:  req.body.id_type_reading
         }
 
         try {
