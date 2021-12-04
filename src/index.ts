@@ -3,7 +3,9 @@ import readingRoutes from './routes/readingRoute'
 import rootRoute from './routes/rootRoute'
 import placeRoute from './routes/placeRoute'
 import instituionsRouter from './routes/institutionsRoute'
+import swaggerDocs from './config/swagger.json'
 
+import swaggerUi from 'swagger-ui-express'
 import cors from 'cors'
 import express from 'express'
 
@@ -15,6 +17,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use(sensorRoutes)
 app.use(readingRoutes)
 app.use(rootRoute)
