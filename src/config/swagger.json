@@ -4,7 +4,7 @@
         "title": "API de manipulação de leituras de ambiente",
         "description": "Tem como objetivo manipular sensores ambientes e leituras de ambentes a partir de sensores em arduinos",
         "contact": {
-            "email": "ifc@gmail.edu.br"
+            "email": "root.vinicius@gmail.com"
         },
         "license": {
             "name": "MIT",
@@ -172,6 +172,38 @@
                     }
                 }
             }
+        },
+        "/place": {
+            "get": {
+                "summary": "Listagem de ambientes",
+                "description": "Responsável por listar todos os ambientes cadastrados",
+                "tags": ["places"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                       "status": {
+                                           "type": "number",
+                                           "example": 200
+                                       },
+                                       "message": {
+                                           "type": "array",
+                                           "items": {
+                                               "type": "object",
+                                                "$ref": "#/components/schemas/Place"
+                                           }
+                                       }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": { 
@@ -205,6 +237,37 @@
                     },
                     "gap": {
                         "type": "number"
+                    }
+                }
+            },
+            "Place": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },                   
+                    "description": {
+                        "type": "string"
+           
+                    },
+                    "note": {
+                        "type": "string"
+                    },
+                    "material": {
+                        "type": "string"
+                    },
+                    "height": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "width": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "length": {
+                        "type": "number",
+                        "format": "float"
                     }
                 }
             }
