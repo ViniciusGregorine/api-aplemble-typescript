@@ -313,7 +313,37 @@
                         "description": "OK"
                     }
                 }
+            },
+            "delete": {
+                "summary": "Remover tipo de leitura por descrição",
+                "description": "Responsável por remover um tipo de leitura por sua descrição",
+                "tags": ["type-readings"],
+                "parameters": [{
+                    "name": "description",
+                    "in": "query",
+                    "description": "Descrição do ambiente",
+                    "required": true
+                },
+                {
+                    "$ref": "#/components/parameters/AcessToken"
+                }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
+
         },
         "/readingByPlaceId{id}": {
             "get": {
