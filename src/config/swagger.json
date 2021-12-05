@@ -203,6 +203,48 @@
                         }
                     }
                 }
+            },
+            "post": {
+                "summary": "Cadastro de ambientes",
+                "description": "responsavel por cadastrar ambientes",
+                "tags": ["places"],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/AcessToken"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Place"
+                            },
+                            "examples": {
+                                "place": {
+                                    "value": {
+                                        "description": "Laboratório 1",
+                                        "note": "Sala experimentos, simples",
+                                        "material": "alvenaria",	
+                                        "height": "2",
+                                        "length": "10",
+                                        "width": "8"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Duplicate field"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         }
     },
