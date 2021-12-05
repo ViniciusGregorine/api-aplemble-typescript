@@ -63,8 +63,8 @@
             },
 
             "get": {
-                "summary": "listagem de sensores",
-                "description": "responsavel listar todos os sensores",
+                "summary": "Listagem de sensores",
+                "description": "Responsável por listar todos os sensores cadastrados",
                 "tags": ["sensors"],
                 "responses": {
                     "200": {
@@ -74,7 +74,17 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        
+                                       "status": {
+                                           "type": "number",
+                                           "example": 200
+                                       },
+                                       "message": {
+                                           "type": "array",
+                                           "items": {
+                                               "type": "object",
+                                                "$ref": "#/components/schemas/Sensor"
+                                           }
+                                       }
                                     }
                                 }
                             }
@@ -89,17 +99,29 @@
             "Sensor": {
                 "type": "object",
                 "properties": {
+                    "id": {
+                        "type": "number"
+                    },                   
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "required": true
+                    },
+                    "installation_date": {
+                        "type": "string",
+                        "format": "timestamp",
+                        "example": "2021-12-04T03:00:00.000Z"
+                    },
+                    "device": {
+                        "type": "number",
+                        "description": "Mostra se sensor está ligado ou não",
+                        "example": 1
+                    },
+                    "situation": {
+                        "type": "string",
+                        "required": true
                     },
                     "gap": {
                         "type": "number"
-                    },
-                    "situation": {
-                        "type": "string"
-                    },
-                    "device": {
-                        "type": "boolean"
                     }
                 }
             }
@@ -108,7 +130,7 @@
             "AcessToken": {
               "name": "x-access-token",
               "in": "header",
-              "description": "Access Token, must be login to get Access Token",
+              "description": "Token de acesso, precisa efetuar o login para ter o token de acesso",
               "required": true,
               "schema": {
                   "type": "string"
