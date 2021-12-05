@@ -245,6 +245,32 @@
                         "description": "OK"
                     }
                 }
+            },
+            "delete": {
+                "summary": "Remover ambiente por descrição",
+                "description": "Responsável por remover um ambiente por sua descrição",
+                "tags": ["places"],
+                "parameters": [{
+                    "name": "description",
+                    "in": "query",
+                    "description": "Descrição do ambiente",
+                    "required": true
+                },
+                {
+                    "$ref": "#/components/parameters/AcessToken"
+                }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         },
         "/readingByPlaceId{id}": {
