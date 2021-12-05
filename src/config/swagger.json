@@ -6,6 +6,10 @@
         "contact": {
             "email": "ifc@gmail.edu.br"
         },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
         "version": "1.0.0"
     },
     "servers": [
@@ -52,9 +56,30 @@
                         "description": "Duplicate field"
                     },
                     "200": {
-                        "description": "Ok"
+                        "description": "OK"
                     }
 
+                }
+            },
+
+            "get": {
+                "summary": "listagem de sensores",
+                "description": "responsavel listar todos os sensores",
+                "tags": ["sensors"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
