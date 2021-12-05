@@ -61,7 +61,6 @@
 
                 }
             },
-
             "get": {
                 "summary": "Listagem de sensores",
                 "description": "Responsável por listar todos os sensores cadastrados",
@@ -91,6 +90,32 @@
                         }
                     }
                 }
+            },
+            "delete": {
+                "summary": "Remover sensor por descrição",
+                "description": "Responsável por remover um sensor por sua descrição",
+                "tags": ["sensors"],
+                "parameters": [{
+                    "name": "description",
+                    "in": "query",
+                    "description": "Descrição do sensor",
+                    "required": true
+                },
+                {
+                    "$ref": "#/components/parameters/AcessToken"
+                }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         }
     },
@@ -98,13 +123,17 @@
         "schemas": {
             "Sensor": {
                 "type": "object",
+                "required": [
+                    "situation",
+                    "description"
+                ],
                 "properties": {
                     "id": {
                         "type": "number"
                     },                   
                     "description": {
-                        "type": "string",
-                        "required": true
+                        "type": "string"
+           
                     },
                     "installation_date": {
                         "type": "string",
@@ -117,8 +146,7 @@
                         "example": 1
                     },
                     "situation": {
-                        "type": "string",
-                        "required": true
+                        "type": "string"
                     },
                     "gap": {
                         "type": "number"
