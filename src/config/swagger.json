@@ -19,6 +19,62 @@
         }
     ],
     "paths": {
+        "/login": {
+            "get": {
+                "summary": "Login de admin",
+                "description": "Login para gerar o token JWT",
+                "tags": ["login"],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "header",
+                        "description": "email de acesso",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "header",
+                        "description": "senha de acesso",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "lack of headers"
+                    },
+                    "403": {
+                        "description": "auh faild"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                       "status": {
+                                           "type": "number",
+                                           "example": 200
+                                       },
+                                       "message": {
+                                           "type": "string",
+                                            "format": "JWT",
+                                            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFaWQiOjEsImlhdCI6MTYzODczMTAzNywiZXhwIjoxNjM4NzQ1NdM3fQ.3Z4QLaXF2GvaAfm7YnpVPcl0xaTj8dWpgJ-XyWITNEw"
+                                       }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/sensor": {
             "post": {
                 "summary": "Cadastro de sensores",
@@ -58,7 +114,6 @@
                     "200": {
                         "description": "OK"
                     }
-
                 }
             },
             "get": {
