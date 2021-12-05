@@ -273,6 +273,48 @@
                 }
             }
         },
+        "/type-reading": {
+            "post": {
+                "summary": "Cadastro de tipo de leitura",
+                "description": "Responsável por cadastrar um novo tipo de leitura",
+                "tags": ["type-readings"],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/AcessToken"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TypeReading"
+                            },
+                            "examples": {
+                                "place": {
+                                    "value": {
+                                        "description": "umidade",
+                                        "min_value": 0,
+                                        "max_value": 100,
+                                        "prefix": "%"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Duplicate field"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
         "/readingByPlaceId{id}": {
             "get": {
                 "summary": "Listar leituras por Ambientes",
@@ -469,7 +511,10 @@
             },
             "TypeReading": {
                 "type": "object",
-                "required": [],
+                "required": [
+                    "description",
+                    "prefix"
+                ],
                 "properties": {
                     "id": {
                         "type": "number"
