@@ -12,7 +12,7 @@ const readingRoutes = Router()
 
 readingRoutes.get('/reading', adaptRoute(listReadingController))
 
-readingRoutes.get('/reading:place_id', adaptRoute(getReadByPlaceController))
+readingRoutes.get('/readingByPlaceId:place_id', adaptRoute(getReadByPlaceController))
 
 
 readingRoutes.post('/reading', adaptRoute(insertReadingController))

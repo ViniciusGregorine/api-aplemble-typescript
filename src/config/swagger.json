@@ -246,6 +246,134 @@
                     }
                 }
             }
+        },
+        "/readingByPlaceId{id}": {
+            "get": {
+                "summary": "Listar leituras por Ambientes",
+                "description": "Uma das principais rotas, responsável por listar todas as leituras de determinado ambiente, separando por tipo de leitura",
+                "tags": ["readings"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do ambiente",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                       "status": {
+                                           "type": "number"
+                                       },
+                                       "message": {
+                                           "type": "array",
+                                           "items": {
+                                               "properties": {
+                                                    "type_reading": {
+                                                        "type": "string"
+                                                    },
+                                                    "prefix": {
+                                                        "type": "string"
+                                                    },
+                                                    "values": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "$ref": "#/components/schemas/Reading"
+                                                        }
+                                                    }
+                                                }
+                                           }
+                                       }
+                                    }
+                                },
+                                "examples": {
+                                    "ambiente com dados de temperatura": {
+                                        "value": {
+                                            "status": 200,
+                                            "message": [
+                                                {
+                                                    "type_reading": "temperatura",
+                                                    "prefix": "°C",
+                                                    "values": [
+                                                        {
+                                                            "id": 25,
+                                                            "value": "22.200",
+                                                            "date": "2021-11-24T03:00:00.000Z",
+                                                            "hour": "07:08:02",
+                                                            "id_sensor": 2
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+    
+                                        }
+                                    },
+                                    "ambiente com dados de umidade": {
+                                        "value": {
+                                            "status": 200,
+                                            "message": [
+                                                {
+                                                    "type_reading": "umidade",
+                                                    "prefix": "%",
+                                                    "values": [
+                                                        {
+                                                            "id": 50,
+                                                            "value": "50.000",
+                                                            "date": "2021-11-27T03:00:00.000Z",
+                                                            "hour": "09:02:01",
+                                                            "id_sensor": 4
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "ambiente com dados de temperatura e umidade": {
+                                        "value": {
+                                            "status": 200,
+                                            "message": [
+                                                {
+                                                    "type_reading": "temperatura",
+                                                    "prefix": "°C",
+                                                    "values": [
+                                                        {
+                                                            "id": 23,
+                                                            "value": "22.200",
+                                                            "date": "2021-11-24T03:00:00.000Z",
+                                                            "hour": "08:02:10",
+                                                            "id_sensor": 5
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type_reading": "umidade",
+                                                    "prefix": "%",
+                                                    "values": [
+                                                        {
+                                                            "id": 54,
+                                                            "value": "50.000",
+                                                            "date": "2021-11-24T03:00:00.000Z",
+                                                            "hour": "08:02:01",
+                                                            "id_sensor": 5
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+    
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": { 
