@@ -312,6 +312,57 @@
                         "format": "float"
                     }
                 }
+            },
+            "TypeReading": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },                   
+                    "description": {
+                        "type": "string"
+           
+                    },
+                    "min_value": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "max_value": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                   "prefix": {
+                       "type": "string"
+                   }
+                }
+            },
+            "Reading": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    
+                    "value": {
+                        "type": "string",
+                        "format": "number"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "timestamp",
+                        "example": "2021-11-24T03:00:00.000Z"
+                    },
+                    "hour": {
+                        "type": "string",
+                        "format": "hour",
+                        "example": "07:08:02"
+                    },
+                    "id_sensor": {
+                        "type": "number"
+                    }
+                }
             }
         },
         "parameters": {
