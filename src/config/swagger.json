@@ -472,6 +472,48 @@
                     }
                 }
             }
+        },
+        "/reading": {
+            "post": {
+                "summary": "Inserir uma nova leitura",
+                "description": "responsável por inserir uma nova leitura, normalemente usada no arduino",
+                "tags": ["readings"],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/AcessToken"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Reading"
+                            },
+                            "examples": {
+                                "place": {
+                                    "value": {
+                                        "value": 20,
+                                        "id_place": 1,
+                                        "id_sensor": 24,
+                                        "id_type_reading": 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Duplicate field"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
         }
     },
     "components": { 
