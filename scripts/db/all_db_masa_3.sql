@@ -31,7 +31,7 @@ create table if not exists sensors (
 	id tinyint not null auto_increment unique,
 	description varchar(50) not null unique,
 	installation_date date default now(),
-	device bool default 0,
+	device bool default 1,
 	id_situation tinyint not null,
 	id_gap int,
     

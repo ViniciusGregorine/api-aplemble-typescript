@@ -206,7 +206,7 @@
             },
             "post": {
                 "summary": "Cadastro de ambientes",
-                "description": "responsavel por cadastrar ambientes",
+                "description": "Responsável por cadastrar ambientes",
                 "tags": ["places"],
                 "parameters": [
                     {
