@@ -478,11 +478,7 @@
                 "summary": "Inserir uma nova leitura",
                 "description": "responsável por inserir uma nova leitura, normalemente usada no arduino",
                 "tags": ["readings"],
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/AcessToken"
-                    }
-                ],
+                "parameters": [],
                 "requestBody": {
                     "content": {
                         "application/json": {
