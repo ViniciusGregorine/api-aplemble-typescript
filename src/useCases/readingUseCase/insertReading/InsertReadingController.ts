@@ -1,4 +1,4 @@
-import { errorHandle, HttpRequest, HttpResponse, ok} from "@/routes/routeAdapter/HttpHandle"
+import { errorHandle, HttpRequest, HttpResponse, ok} from "@/utils/routeAdapter/HttpHandle"
 import { requiredParams } from "@/utils/requireParams"
 import { InsertReadingUseCase } from "./InsertReadingUseCase"
 import { IReadingDTO } from "./IReadingDTO"

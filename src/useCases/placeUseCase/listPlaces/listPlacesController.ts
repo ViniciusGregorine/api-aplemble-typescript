@@ -1,4 +1,4 @@
-import { errorHandle, HttpResponse, IController, ok } from '@/routes/routeAdapter/HttpHandle'
+import { errorHandle, HttpResponse, IController, ok } from '@/utils/routeAdapter/HttpHandle'
 import { ListPlaceUseCase } from '@/useCases/placeUseCase/listPlaces/ListPlaceUseCase'
 
 export class ListPlaceControler implements IController{

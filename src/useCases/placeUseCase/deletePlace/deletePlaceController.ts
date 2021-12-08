@@ -1,4 +1,4 @@
-import {ok, errorHandle, HttpRequest, HttpResponse } from '@/routes/routeAdapter/HttpHandle'
+import {ok, errorHandle, HttpRequest, HttpResponse } from '@/utils/routeAdapter/HttpHandle'
 import { requiredParams } from '@/utils/requireParams'
 import { DeletePlaceUseCase } from './deletePlaceUseCase'
 
