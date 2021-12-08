@@ -9,5 +9,6 @@ build an API to manage the input data from sensors to a database, and manage the
 - Express 
 - Mysql2 
 - jasonwebtoken
+- swagger for documentation
 
 ---
