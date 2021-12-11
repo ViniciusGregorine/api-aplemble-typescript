@@ -16,7 +16,7 @@ readingRoutes.get('/reading', adaptRoute(listReadingController))
 readingRoutes.get('/readingByPlaceId:place_id', adaptRoute(getReadByPlaceController))
 
 
-readingRoutes.post('/reading', authMiddleware,adaptRoute(insertReadingController))
+readingRoutes.post('/reading', adaptRoute(insertReadingController))
 
 readingRoutes.get('/type-reading', adaptRoute(listTypeReadingController))
 
