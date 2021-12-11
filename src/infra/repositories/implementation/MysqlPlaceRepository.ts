@@ -13,9 +13,6 @@ export class MysqlPlaceRepository implements IPlaceRepository{
         `SELECT places.id, 
           places.description, 
           places.note, 
-          places.sensor_temp, 
-          places.sensor_humi, 
-          places.lim_temperature, 
           materials.description AS material, 
           dimensions.height, 
           dimensions.width, 
@@ -59,9 +56,9 @@ export class MysqlPlaceRepository implements IPlaceRepository{
             description: place.description,
             note: place.note,
 
-            sensor_temp: place.sensor_temp || 0,
-            sensor_humi: place.sensor_humi || 0,
-            lim_temperature: place.lim_temperature,
+            // sensor_temp: place.sensor_temp || 0,
+            // sensor_humi: place.sensor_humi || 0,
+            // lim_temperature: place.lim_temperature,
 
             id_material: materialId,
             id_dimension: dimensionId,
