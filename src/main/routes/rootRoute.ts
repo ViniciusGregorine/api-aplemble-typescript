@@ -4,7 +4,7 @@ const rootRoute = Router()
 
 
 rootRoute.get('/', (req, res) => {
-    return res.status(201).send({massege: 'como vai amigo'})
+    return res.redirect('/api-doc');
 })
 
 export default rootRoute
