@@ -17,7 +17,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use(sensorRoutes)
 app.use(readingRoutes)
 app.use(rootRoute)
