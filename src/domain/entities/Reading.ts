@@ -1,12 +1,16 @@
-export class Reading {
+import { ReadingEntity } from "./IReading"
+
+
+export class Reading implements ReadingEntity {
     public id!: number
 
+    public value!: number
     public date?: string
     public hour?: number
-    public value_humidity?: number
-    public value_temperature?: number
     public id_place!: number
     public id_sensor!: number  
+    public id_type_reading!: number
+    public name?: string
 
     constructor(props: Omit<Reading, 'id'>, id?: string){
       Object.assign(this, props)
