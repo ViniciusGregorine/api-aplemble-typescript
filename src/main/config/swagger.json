@@ -49,7 +49,7 @@
                         "description": "lack of headers"
                     },
                     "403": {
-                        "description": "auh faild"
+                        "description": "auth faild"
                     },
                     "200": {
                         "description": "OK",
