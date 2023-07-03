@@ -4,9 +4,9 @@ import { ReadingEntity } from "./IReading"
 export class Reading implements ReadingEntity {
     public id!: number
 
-    public value!: number
+    public value!: number | number[]
     public date?: string
-    public hour?: number
+    public hour?: string
     public id_place!: number
     public id_sensor!: number  
     public id_type_reading!: number
