@@ -1,15 +1,17 @@
 import { RowDataPacket } from "mysql2";
 
-export interface IReading extends RowDataPacket{
+export interface ReadingEntity {
     id: number
 
-    date: string
-    hour: number
-    value: number
-    type_reading: string
-    // id_place: number
+    date?: string
+    hour?: string
+    value: number | number[]
+    id_type_reading: number
+    id_place: number
     id_sensor: number  
 }
+
+export interface IReading extends ReadingEntity, RowDataPacket{}
 
 export interface ITypeReading extends RowDataPacket{
     id?: number

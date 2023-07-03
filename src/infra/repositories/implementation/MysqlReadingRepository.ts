@@ -1,5 +1,5 @@
 import {pool} from '@/infra/repositories/implementation/poolConnection'
-import { IReading, ITypeReading } from '@/domain/entities/IReading'
+import { IReading, ITypeReading, ReadingEntity } from '@/domain/entities/IReading'
 import { IReadingRepository } from '../contracts/IReadingRepository'
 import { functionFindByDescription } from '../helpers/findByDescription';
 
@@ -33,7 +33,7 @@ export class MysqlReadingRepository implements IReadingRepository{
     }
   }
 
-  async save(reading: any): Promise<any> {
+  async save(reading: ReadingEntity): Promise<any> {
     try {
       await pool.query(`INSERT INTO readings SET ?`, reading);
   
